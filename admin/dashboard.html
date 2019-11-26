@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en" class="no-js">
+
+        <meta charset="utf-8"/>
+<title>DiagnoX.ai-Dashboard</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta name="csrf-token" content="02xMj5p3FIMvjKR0i8cWU3WVc3vW8nAoTluXXl5M"/>
+
+<!-- BEGIN GLOBAL MANDATORY STYLES -->
+<link media="all" type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&amp;subset=all">
+<link media="all" type="text/css" rel="stylesheet" href="./assets/global/plugins/font-awesome/css/font-awesome.min.css">
+<link media="all" type="text/css" rel="stylesheet" href="./assets/global/plugins/simple-line-icons/simple-line-icons.min.css">
+<link media="all" type="text/css" rel="stylesheet" href="./assets/global/plugins/bootstrap/css/bootstrap.min.css">
+<link media="all" type="text/css" rel="stylesheet" href="./assets/global/plugins/uniform/css/uniform.default.css">
+<link media="all" type="text/css" rel="stylesheet" href="./assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css">
+
+
+    <!-- BEGIN PAGE LEVEL STYLES -->
+    <!-- <link media="all" type="text/css" rel="stylesheet" href="./assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css">
+    <link media="all" type="text/css" rel="stylesheet" href="./assets/global/plugins/select2/select2.css">
+    <link media="all" type="text/css" rel="stylesheet" href="./assets/global/plugins/jquery-multi-select/css/multi-select.css">
+    <link media="all" type="text/css" rel="stylesheet" href="./assets/global/plugins/fullcalendar/fullcalendar.min.css"> -->
+    <!-- BEGIN THEME STYLES -->
+
+
+<link media="all" type="text/css" rel="stylesheet" href="./assets/global/css/components.css">
+<link media="all" type="text/css" rel="stylesheet" href="./assets/global/css/plugins.css">
+<link media="all" type="text/css" rel="stylesheet" href="./assets/admin/layout/css/layout.css">
+<link media="all" type="text/css" rel="stylesheet" href="./assets/admin/layout/css/themes/darkblue.css">
+<link media="all" type="text/css" rel="stylesheet" href="./assets/admin/layout/css/custom.css">
+<link media="all" type="text/css" rel="stylesheet" href="./assets/global/plugins/froiden-helper/helper.css">
+
+
+
+
+
+<body class="page-header-fixed page-quick-sidebar-over-content page-style-square"> 
+
+        <!-- BEGIN HEADER -->
+<div class="page-header navbar navbar-fixed-top">
+    <!-- BEGIN HEADER INNER -->
+    <div class="page-header-inner">
+        <!-- BEGIN LOGO -->
+        <div class="page-logo">
+            <a href="main.php">
+                <h1 class="webname" style="color: cornsilk ; margin-top: -6px;">DiagnoX.ai</h1>
+                <!-- <img src="./assets/global/img/hrm-logo.png" height="30px" /> -->
+
+            </a>
+            <div class="menu-toggler sidebar-toggler hide">
+                <!-- DOC: Remove the above "hide" to enable the sidebar toggler button on header -->
+            </div>
+        </div>
+        <!-- END LOGO -->
+        <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+        <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse"
+           data-target=".navbar-collapse">
+        </a>
+        <!-- END RESPONSIVE MENU TOGGLER -->
+        <!-- BEGIN TOP NAVIGATION MENU -->
+        <div class="top-menu">
+            <ul class="nav navbar-nav pull-right">
+
+                <!-- <li class="dropdown dropdown-extended dropdown-notification" id="header_notification_bar">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
+                       data-close-others="true">
+                        <i class="icon-bell"></i> -->
+
+                        
+                    </a>
+
+
+                    <!-- <ul class="dropdown-menu">
+                        <li class="external">
+                            <h3><span class="bold">0 pending</span> notifications</h3>
+
+                        </li>
+                                            </ul> -->
+                </li>
+
+                <li class="dropdown dropdown-user">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
+                       data-close-others="true">
+
+                    <span class="username username-hide-on-mobile">
+                  Admin</span>
+                        <i class="fa fa-angle-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-default">
+                        <li>
+                            <a href="#">
+                                <i class="icon-user"></i> My Profile </a>
+                        </li>
+
+                        <li class="divider">
+                        </li>
+                        <!-- <li>
+                            <a href="https://hrm.froid.works/screenlock ">
+                                <i class="icon-lock"></i> Lock Screen </a>
+                        </li> -->
+                        <li>
+                            <a href="#" id="logout-form">
+                                <i class="icon-logout"></i> Log Out </a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- END USER LOGIN DROPDOWN -->
+
+            </ul>
+        </div>
+        <!-- END TOP NAVIGATION MENU -->
+    </div>
+    <!-- END HEADER INNER -->
+</div>
+<!-- END HEADER -->
+
+
+
+<form method="POST" action="https://hrm.froid.works" accept-charset="UTF-8" id="edit_form_leave"><input name="_method" type="hidden" value="PATCH"><input name="_token" type="hidden" value="02xMj5p3FIMvjKR0i8cWU3WVc3vW8nAoTluXXl5M">
+<div id="static_leave_requests" class="modal fade" tabindex="-1" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <span class="caption-subject font-red-sunglo bold uppercase">Leave Application</span>
+            </div>
+            <div class="modal-body" id="modal-data-leave">
+                
+            </div>
+        </div>
+
+    </div>
+</div>
+</div>
+</form>
+
+
+<script>
+    function show_application_notification(id) {
+        $("#modal-data-leave").html('<div class="text-center"><img src="./assets/admin/layout/img/loading-spinner-blue.gif"></div>');
+        var editUrl = "https://hrm.froid.works/admin/leave_applications/:id";
+        editUrl = editUrl.replace(':id', id);
+        $('#edit_form_leave').attr('action', editUrl);
+
+        var url = "https://hrm.froid.works/admin/leave_applications/:id";
+        url = url.replace(':id', id);
+        $('#edit_form_leave').attr('action', url);
+
+        $.ajax({
+            type: "GET",
+            url: url
+
+        }).done(function (response) {
+            $('#modal-data-leave').html(response);
+//
+        });
+    }
+</script>
+
+        <div class="clearfix">
+        </div>
+
+<!-- BEGIN CONTAINER -->
+<div class="page-container">
+
+         <!-- BEGIN SIDEBAR -->
+<div class="page-sidebar-wrapper">
+    <div class="page-sidebar navbar-collapse collapse">
+        <!-- BEGIN SIDEBAR MENU -->
+        <!-- DOC: Apply "page-sidebar-menu-light" class right after "page-sidebar-menu" to enable light sidebar menu style(without borders) -->
+        <!-- DOC: Apply "page-sidebar-menu-hover-submenu" class right after "page-sidebar-menu" to enable hoverable(hover vs accordion) sub menu mode -->
+        <!-- DOC: Apply "page-sidebar-menu-closed" class right after "page-sidebar-menu" to collapse("page-sidebar-closed" class must be applied to the body element) the sidebar sub menu mode -->
+        <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+        <!-- DOC: Set data-keep-expand="true" to keep the submenues expanded -->
+        <!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+        <ul class="page-sidebar-menu" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+            <!-- DOC: To remove the sidebar toggler from the sidebar you just need to completely remove the below "sidebar-toggler-wrapper" LI element -->
+            <li class="sidebar-toggler-wrapper">
+                <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+                <div class="sidebar-toggler">
+                </div>
+                <!-- END SIDEBAR TOGGLER BUTTON -->
+            </li>
+
+
+            
+            <li class="start active">
+                <a href="#">
+                    <i class="fa fa-home"></i>
+                    <span class="title">Dashboard</span>
+                    <span class="selected"></span>
+                </a>
+            </li>
+            
+
+
+            
+            <li class="">
+                <a href="Patients.html">
+                    <i class="fa fa-users"></i>
+                    <span class="title">Patients</span>
+                </a>
+            </li>
+            
+
+
+            
+            <!-- <li class="">
+                <a href="departments">
+                    <i class="fa fa-briefcase"></i>
+                    <span class="title">Department</span>
+                </a>
+            </li> -->
+            
+
+            
+            <!-- <li class="">
+                <a href="https://hrm.froid.works/admin/awards">
+                    <i class="fa fa-trophy"></i>
+                    <span class="title">Award</span>
+                </a>
+            </li>
+            
+
+
+            
+            <li class="">
+                <a href="https://hrm.froid.works/admin/expenses">
+                    <i class="fa fa-money"></i>
+                    <span class="title">Expense</span>
+                </a>
+            </li>
+            
+
+
+            
+            <li class="">
+                <a href="https://hrm.froid.works/admin/holidays">
+                    <i class="fa fa-send"></i>
+                    <span class="title">Holidays</span>
+                </a>
+            </li>
+            
+
+
+            
+            <li class="">
+                <a href="javascript:;">
+                    <i class="fa fa-user"></i>
+                    <span class="title">Attendance</span>
+                    <span class="arrow "></span>
+                </a>
+                <ul class="sub-menu">
+                    <li class="">
+                        <a href="https://hrm.froid.works/admin/attendances/create">
+                            <i class="fa  fa-check"></i>
+                            Mark Attendance</a>
+                    </li>
+                    <li class="">
+                        <a href="https://hrm.froid.works/admin/attendances">
+                            <i class="fa  fa-eye"></i>
+                            View Attendance</a>
+                    </li>
+                    <li class="">
+                        <a href="https://hrm.froid.works/admin/leavetypes">
+                            <i class="fa fa-sitemap"></i>
+                            Leave Types</a>
+                    </li>
+                </ul>
+            </li>
+
+            
+
+            
+            <li class="">
+                <a href="https://hrm.froid.works/admin/leave_applications">
+                    <i class="fa fa-rocket"></i>
+                    <span class="title">Leave Applications</span>
+                </a>
+            </li>
+
+            
+
+
+            
+            <li class="">
+                <a href="https://hrm.froid.works/admin/noticeboards">
+                    <i class="fa fa-clipboard"></i>
+                    <span class="title">Notice Board</span>
+                </a>
+            </li> -->
+
+            
+
+
+            
+            <li class="">
+                <a href="javascript:;">
+                    <i class="fa fa-cogs"></i>
+                    <span class="title">Settings</span>
+                    <span class="arrow "></span>
+                </a>
+                <ul class="sub-menu">
+                    <li class="">
+                        <a href="#">
+                            <i class="fa  fa-cog"></i>
+                            General Setting</a>
+                    </li>
+
+                    <li class="">
+                        <a href="#">
+                            <i class="fa fa-user"></i>
+                            Profile Setting</a>
+                    </li>
+                    <!-- <li class="">
+                        <a href="#">
+                            <i class="fa fa-bell"></i>
+                            Notification Setting</a>
+                    </li> -->
+
+                    <li class="">
+                        <a href="#">
+                            <i class="fa fa-bell"></i>
+                            Email Setting</a>
+                    </li>
+
+                    <li class="">
+                        <a href="#">
+                            <i class="fa fa-language"></i>
+                            Update Log</a>
+                    </li>
+                </ul>
+            </li>
+
+            
+
+        </ul>
+        <!-- END SIDEBAR MENU -->
+    </div>
+</div>
+<!-- END SIDEBAR -->
+    <!-- BEGIN CONTENT -->
+    <div class="page-content-wrapper">
+        <div class="page-content">
+     
+                
+
+
+    <!-- BEGIN PAGE HEADER-->
+    <h3 class="page-title">
+        Dashboard
+        <small>reports & statistics</small>
+    </h3>
+
+
+    <!-- <div class="page-bar">
+        <ul class="page-breadcrumb">
+            <li>
+                <i class="fa fa-home"></i>
+                <a href="https://hrm.froid.works/admin/dashboard">Home</a>
+                <i class="fa fa-angle-right"></i>
+            </li>
+            <li>
+                <a href="#">Dashboard</a>
+            </li>
+        </ul>
+
+    </div>
+    <!-- END PAGE HEADER-->
+
+
+                <!-- <div class="note note-info row">
+            <div class="col-md-10"><i class="fa fa-gift"></i> New update available <label
+                    class="label label-success">3.1.0</label></div>
+            <div class="col-md-2">
+                <a href="https://hrm.froid.works/admin/update-new-version"
+                   class="btn btn-success btn-small">Update Now                    <i class="fa fa-arrow-right"></i>
+                </a>
+            </div>
+        </div> -->
+
+    
+
+    
+    <!-- <div class="row">
+        <div class="col-md-12">
+            <div class="portlet box blue calendar">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <i class="fa fa-gift"></i>Attendance
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <div class="row">
+
+                        <div class="col-md-9 col-sm-12">
+                            <div id="calendar" class="has-toolbar">
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-3">
+                            <p>
+                            <h3><a href="#" class="btn btn-sm red"></a> Absent</h3></p>
+                            <p>
+                            <h3><a href="#" class="btn btn-sm blue"></a> Present</h3></p>
+
+                        </div>
+                    </div>
+                    <!- END CALENDAR PORTLET-->
+                </div>
+            </div>
+        </div>
+
+    </div> -->
+
+
+
+
+
+    <!-- BEGIN DASHBOARD STATS -->
+    <!-- <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="portlet box blue">
+                <div class="portlet-title">
+                    <div class="caption">
+                        Expense Report
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <div id="expenseChart" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- END DASHBOARD STATS -->
+    
+        </div>
+        
+    </div> -->
+    <!-- END CONTENT -->
+    
+</div>
+<!-- END CONTAINER -->
+
+    <!-- BEGIN FOOTER -->
+<div class="page-footer">
+	<div class="page-footer-inner">
+		 2019 &copy; DiagnoX
+	</div>
+	<div class="scroll-to-top">
+		<i class="icon-arrow-up"></i>
+	</div>
+</div>
+<!-- END FOOTER -->
+        <!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+<!-- BEGIN CORE PLUGINS -->
+<!--[if lt IE 9]>
+
+<script src="https://hrm.froid.works/assets/global/plugins/respond.min.js"></script>
+<script src="https://hrm.froid.works/assets/global/plugins/excanvas.min.js"></script>
+
+<![endif]-->
+<script src="./assets/global/plugins/jquery.min.js"></script>
+<script src="./assets/global/plugins/jquery-ui/jquery-ui-1.10.3.custom.min.js"></script>
+<script src="./assets/global/plugins/bootstrap/js/bootstrap.min.js"></script>
+<!-- <script src="./assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js"></script>
+<script src="./assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<script src="./assets/global/plugins/froiden-helper/helper.js"></script> -->
+
+<script src="./assets/global/scripts/metronic.js"></script>
+<script src="./assets/admin/layout/scripts/layout.js"></script>
+
+
+<!-- END PAGE LEVEL SCRIPTS -->
+<script>
+    jQuery(document).ready(function () {
+        Metronic.init(); // init metronic core componets
+        Layout.init(); // init layout
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $('.demo-loading-btn')
+            .click(function () {
+                var btn = $(this)
+                btn.button('loading')
+                setTimeout(function () {
+                    btn.button('reset')
+                }, 8000)
+            });
+        $('.demo-loading-btn-ajax')
+            .click(function () {
+                var btn = $(this)
+                btn.button('loading')
+                setTimeout(function () {
+                    btn.button('reset')
+                }, 500)
+            });
+
+
+    });
+
+    // function ToggleEmailNotification(type) {
+    //     if ($('[name=' + type + ']').is(':checked')) {
+    //         var value = 1;
+    //     }
+    //     else {
+    //         var value = 0;
+    //     }
+    //     <!--$('#load_notification').html('<img src="./assets/global/img/hrm-logo.png" height="30px" width="117px" />');-->
+
+    //     var url = "https://hrm.froid.works/admin/ajax_update_notification";
+
+    //     $.easyAjax({
+    //         type: 'POST',
+    //         url: url,
+    //         container: '#load_notification',
+    //         data: {'value': value, 'id': '1', 'type': type},
+    //         success: function (response) {
+    //             if (response.success == 'success') {
+    //                 $('#load_notification').html('');
+    //             }
+    //         }
+    //     });
+
+    // }
+
+    function updateLeaveApplication(id) {
+
+        var url = "https://hrm.froid.works/admin/leave_applications/:id";
+        url = url.replace(':id', id);
+
+        $.easyAjax({
+            type: 'PUT',
+            url: url,
+            container: '#edit_form_leave',
+            data: $('#edit_form_leave').serialize(),
+            success: function () {
+                window.location.reload();
+            }
+        });
+
+    }
+</script>
+
+
+
+        <!-- BEGIN PAGE LEVEL PLUGINS -->
+            <!-- <script src="./assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+            <script src="./assets/global/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+            <script src="./assets/global/plugins/select2/select2.min.js"></script>
+
+            <script src="./assets/global/plugins/jquery-multi-select/js/jquery.multi-select.js"></script>
+            <script src="./assets/admin/pages/scripts/components-dropdowns.js"></script>
+
+
+            <script src="./assets/admin/pages/scripts/ui-blockui.js"></script>
+            <script src="./assets/global/plugins/moment.min.js"></script>
+            <script src="./assets/global/plugins/fullcalendar/fullcalendar.min.js"></script>
+            <script src="https://code.highcharts.com/highcharts.js"></script>
+            <script src="https://code.highcharts.com/modules/exporting.js"></script> -->
+
+
+<!-- 
+            <script>
+                jQuery(document).ready(function () {
+                    Calendar.init();
+                    UIBlockUI.init();
+                    ComponentsDropdowns.init();
+                });
+
+                var Calendar = function () {
+
+                    return {
+                        //main function to initiate the module
+                        init: function () {
+                            Calendar.initCalendar();
+                        },
+
+                        initCalendar: function () {
+
+                            if (!jQuery().fullCalendar) {
+                                return;
+                            }
+
+                            var date = new Date();
+                            var d = date.getDate();
+                            var m = date.getMonth();
+                            var y = date.getFullYear();
+
+                            var h = {};
+
+
+                            if ($('#calendar').parents(".portlet").width() <= 720) {
+                                $('#calendar').addClass("mobile");
+                                h = {
+                                    left: 'title, prev, next',
+                                    center: '',
+                                    right: 'today,month'
+                                };
+                            } else {
+                                $('#calendar').removeClass("mobile");
+                                h = {
+                                    left: 'title',
+                                    center: '',
+                                    right: 'prev,next,today'
+                                };
+                            }
+
+                            $('#calendar').fullCalendar('destroy'); // destroy the calendar
+                            $('#calendar').fullCalendar({ //re-initialize the calendar
+                                header: h,
+                                defaultView: 'month',
+                                eventRender: function (event, element) {
+                                    if (event.className == "holiday") {
+                                        var dataToFind = moment(event.start).format('YYYY-MM-DD');
+                                        $('.fc-day[data-date="' + dataToFind + '"]').css('background', 'rgba(255, 224, 205, 1)');
+                                    }
+                                },
+                                events: [
+                                        
+                                                                            {
+                                        className: "holiday",
+                                        title: "Sunday",
+                                        start: '2019-01-06',
+
+                                        color: 'grey'
+
+                                    },
+
+                                                                            {
+                                        className: "holiday",
+                                        title: "Sunday",
+                                        start: '2019-01-13',
+
+                                        color: 'grey'
+
+                                    },
+
+                                                                            {
+                                        className: "holiday",
+                                        title: "Sunday",
+                                        start: '2019-01-20',
+
+                                        color: 'grey'
+
+                                    },
+
+                                                                            {
+                                        className: "holiday",
+                                        title: "Sunday",
+                                        start: '2019-01-27',
+
+                                        color: 'grey'
+
+                                    },
+
+                                                                            {
+                                        className: "holiday",
+                                        title: "Sunday",
+                                        start: '2019-02-03',
+
+                                        color: 'grey'
+
+                                    },
+
+                                                                            {
+                                        className: "holiday",
+                                        title: "Sunday",
+                                        start: '2019-02-10',
+
+                                        color: 'grey'
+
+                                    },
+
+                                                                            {
+                                        className: "holiday",
+                                        title: "Sunday",
+                                        start: '2019-02-17',
+
+                                        color: 'grey'
+
+                                    },
+
+                                                                            {
+                                        className: "holiday",
+                                        title: "Sunday",
+                                        start: '2019-02-24',
+
+                                        color: 'grey'
+
+                                    },
+
+                                                                            {
+                                        className: "holiday",
+                                        title: "Sunday",
+                                        start: '2019-03-03',
+
+                                        color: 'grey'
+
+                                    },
+
+                                                                            {
+                                        className: "holiday",
+                                        title: "Sunday",
+                                        start: '2019-03-10',
+
+                                        color: 'grey'
+
+                                    },
+
+                                                                            {
+                                        className: "holiday",
+                                        title: "Sunday",
+                                        start: '2019-03-17',
+
+                                        color: 'grey'
+
+                                    },
+
+                                                                            {
+                                        className: "holiday",
+                                        title: "Sunday",
+                                        start: '2019-03-24',
+
+                                        color: 'grey'
+
+                                    },
+
+                                                                            {
+                                        className: "holiday",
+                                        title: "Sunday",
+                                        start: '2019-03-31',
+
+                                        color: 'grey'
+
+                                    },
+
+                                                                            {
+                                        className: "holiday",
+                                        title: "Sunday",
+                                        start: '2019-04-07',
+
+                                        color: 'grey'
+
+                                    },
+
+                                                                            {
+                                        className: "holiday",
+                                        title: "Sunday",
+                                        start: '2019-04-14',
+
+                                        color: 'grey'
+
+                                    },
+
+                                                                            {
+                                        className: "holiday",
+                                        title: "Sunday",
+                                        start: '2019-04-21',
+
+                                        color: 'grey'
+
+                                    },
+
+                                                                            {
+                                        className: "holiday",
+                                        title: "Sunday",
+                                        start: '2019-04-28',
+
+                                        color: 'grey'
+
+                                    },
+
+                                                                            {
+                                        className: "holiday",
+                                        title: "Sunday",
+                                        start: '2019-05-05',
+
+                                        color: 'grey'
+
+                                    },
+
+                                                                            {
+                                        className: "holiday",
+                                        title: "Sunday",
+                                        start: '2019-05-12',
+
+                                        color: 'grey'
+
+                                    },
+
+                                                                            {
+                                        className: "holiday",
+                                        title: "Sunday",
+                                        start: '2019-05-19',
+
+                                        color: 'grey'
+
+                                    },
+
+                                                                            {
+                                        className: "holiday",
+                                        title: "Sunday",
+                                        start: '2019-05-26',
+
+                                        color: 'grey'
+
+                                    },
+
+                                                                            {
+                                        className: "holiday",
+                                        title: "Sunday",
+                                        start: '2019-06-02',
+
+                                        color: 'grey'
+
+                                    },
+
+                                                                            {
+                                        className: "holiday",
+                                        title: "Sunday",
+                                        start: '2019-06-09',
+
+                                        color: 'grey'
+
+                                    },
+
+                                                                            {
+                                        className: "holiday",
+                                        title: "Sunday",
+                                        start: '2019-06-16',
+
+                                        color: 'grey'
+
+                                    },
+
+                                                                            {
+                                        className: "holiday",
+                                        title: "Sunday",
+                                        start: '2019-06-23',
+
+                                        color: 'grey'
+
+                                    },
+
+                                                                            {
+                                        className: "holiday",
+                                        title: "Sunday",
+                                        start: '2019-06-30',
+
+                                        color: 'grey'
+
+                                    },
+
+                                                                            {
+                                        className: "holiday",
+                                        title: "Sunday",
+                                        start: '2019-07-07',
+
+                                        color: 'grey'
+
+                                    },
+
+                                                                            {
+                                        className: "holiday",
+                                        title: "Sunday",
+                                        start: '2019-07-14',
+
+                                        color: 'grey'
+
+                                    },
+
+                                                                            {
+                                        className: "holiday",
+                                        title: "Sunday",
+                                        start: '2019-07-21',
+
+                                        color: 'grey'
+
+                                    },
+
+                                                                            {
+                                        className: "holiday",
+                                        title: "Sunday",
+                                        start: '2019-07-28',
+
+                                        color: 'grey'
+
+                                    },
+
+                                                                            {
+                                        className: "holiday",
+                                        title: "Sunday",
+                                        start: '2019-08-04',
+
+                                        color: 'grey'
+
+                                    },
+
+                                                                            {
+                                        className: "holiday",
+                                        title: "Sunday",
+                                        start: '2019-08-11',
+
+                                        color: 'grey'
+
+                                    },
+
+                                                                            {
+                                        className: "holiday",
+                                        title: "Sunday",
+                                        start: '2019-08-18',
+
+                                        color: 'grey'
+
+                                    },
+
+                                                                            {
+                                        className: "holiday",
+                                        title: "Sunday",
+                                        start: '2019-08-25',
+
+                                        color: 'grey'
+
+                                    },
+
+                                                                            {
+                                        className: "holiday",
+                                        title: "Sunday",
+                                        start: '2019-09-01',
+
+                                        color: 'grey'
+
+                                    },
+
+                                                                            {
+                                        className: "holiday",
+                                        title: "Sunday",
+                                        start: '2019-09-08',
+
+                                        color: 'grey'
+
+                                    },
+
+                                                                            {
+                                        className: "holiday",
+                                        title: "Sunday",
+                                        start: '2019-09-15',
+
+                                        color: 'grey'
+
+                                    },
+
+                                                                            {
+                                        className: "holiday",
+                                        title: "Sunday",
+                                        start: '2019-09-22',
+
+                                        color: 'grey'
+
+                                    },
+
+                                                                            {
+                                        className: "holiday",
+                                        title: "Sunday",
+                                        start: '2019-09-29',
+
+                                        color: 'grey'
+
+                                    },
+
+                                                                            {
+                                        className: "holiday",
+                                        title: "Sunday",
+                                        start: '2019-10-06',
+
+                                        color: 'grey'
+
+                                    },
+
+                                                                            {
+                                        className: "holiday",
+                                        title: "Sunday",
+                                        start: '2019-10-13',
+
+                                        color: 'grey'
+
+                                    },
+
+                                                                            {
+                                        className: "holiday",
+                                        title: "Sunday",
+                                        start: '2019-10-20',
+
+                                        color: 'grey'
+
+                                    },
+
+                                                                            {
+                                        className: "holiday",
+                                        title: "Sunday",
+                                        start: '2019-10-27',
+
+                                        color: 'grey'
+
+                                    },
+
+                                                                            {
+                                        className: "holiday",
+                                        title: "Sunday",
+                                        start: '2019-11-03',
+
+                                        color: 'grey'
+
+                                    },
+
+                                                                            {
+                                        className: "holiday",
+                                        title: "Sunday",
+                                        start: '2019-11-10',
+
+                                        color: 'grey'
+
+                                    },
+
+                                                                            {
+                                        className: "holiday",
+                                        title: "Sunday",
+                                        start: '2019-11-17',
+
+                                        color: 'grey'
+
+                                    },
+
+                                                                            {
+                                        className: "holiday",
+                                        title: "Sunday",
+                                        start: '2019-11-24',
+
+                                        color: 'grey'
+
+                                    },
+
+                                                                            {
+                                        className: "holiday",
+                                        title: "Sunday",
+                                        start: '2019-12-01',
+
+                                        color: 'grey'
+
+                                    },
+
+                                                                            {
+                                        className: "holiday",
+                                        title: "Sunday",
+                                        start: '2019-12-08',
+
+                                        color: 'grey'
+
+                                    },
+
+                                                                            {
+                                        className: "holiday",
+                                        title: "Sunday",
+                                        start: '2019-12-15',
+
+                                        color: 'grey'
+
+                                    },
+
+                                                                            {
+                                        className: "holiday",
+                                        title: "Sunday",
+                                        start: '2019-12-22',
+
+                                        color: 'grey'
+
+                                    },
+
+                                                                            {
+                                        className: "holiday",
+                                        title: "Sunday",
+                                        start: '2019-12-29',
+
+                                        color: 'grey'
+
+                                    },
+
+                                                                                
+                                        
+                                                                                                                                {
+                                                title: "Name: Bart\n Type: sick",
+                                                start: '2019-10-29',
+                                                color: '#e50000'
+
+                                            },
+                                                                                        {
+                                                title: "Name: Darby\n Type: sick",
+                                                start: '2019-10-29',
+                                                color: '#e50000'
+
+                                            },
+                                                                                        {
+                                                title: "Name: Leopold\n Type: sick",
+                                                start: '2019-10-29',
+                                                color: '#e50000'
+
+                                            },
+                                                                                        {
+                                                title: "Name: Pearl\n Type: sick",
+                                                start: '2019-10-29',
+                                                color: '#e50000'
+
+                                            },
+                                                                                        
+                                    
+                                ]
+                            });
+                        }
+                    };
+                }();
+
+                $(function () {
+
+                    $('#expenseChart').highcharts({
+                        chart: {
+                            type: 'column'
+                        },
+                        title: {
+                            text: 'Monthly Expense Report ' + new Date().getFullYear()
+                        },
+                        xAxis: {
+                            categories: [
+                                'Jan',
+                                'Feb',
+                                'Mar',
+                                'Apr',
+                                'May',
+                                'Jun',
+                                'Jul',
+                                'Aug',
+                                'Sep',
+                                'Oct',
+                                'Nov',
+                                'Dec'
+                            ],
+                            crosshair: true
+                        },
+                        yAxis: {
+                            min: 0,
+                            title: {
+                                useHTML: true,
+                                text: 'Expense in ( <span class="fa fa-inr"></span> )'
+                            }
+                        },
+                        tooltip: {
+                            headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                            pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                                '<td style="padding:0"><b>{point.y:.1f} <span class="fa fa-inr"></span></b></td></tr>',
+                            footerFormat: '</table>',
+                            shared: true,
+                            useHTML: true
+                        },
+                        plotOptions: {
+                            column: {
+                                pointPadding: 0.2,
+                                borderWidth: 0
+                            }
+                        },
+                        series: [{
+                            name: 'Expense',
+                            data: ['','','','','','','','','','','','']
+
+                        }]
+                    });
+                });
+            </script> -->
+
+            <!-- END PAGE LEVEL PLUGINS -->
+
+</body>
+<!-- END BODY -->
+</html>

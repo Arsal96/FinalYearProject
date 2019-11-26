@@ -1,0 +1,949 @@
+
+<!DOCTYPE html>
+
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en" class="no-js">
+
+        <meta charset="utf-8"/>
+<title>DiagnoX- Add_Patients</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta name="csrf-token" content="02xMj5p3FIMvjKR0i8cWU3WVc3vW8nAoTluXXl5M"/>
+
+<!-- BEGIN GLOBAL MANDATORY STYLES -->
+<link media="all" type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&amp;subset=all">
+<link media="all" type="text/css" rel="stylesheet" href="./assets/global/plugins/font-awesome/css/font-awesome.min.css">
+<link media="all" type="text/css" rel="stylesheet" href="./assets/global/plugins/simple-line-icons/simple-line-icons.min.css">
+<link media="all" type="text/css" rel="stylesheet" href="assets/global/plugins/bootstrap/css/bootstrap.min.css">
+<link media="all" type="text/css" rel="stylesheet" href="assets/global/plugins/uniform/css/uniform.default.css">
+<link media="all" type="text/css" rel="stylesheet" href="assets/global/plugins/bootstrap-switch/css/bootstrap-switch.min.css">
+
+
+    <!-- BEGIN PAGE LEVEL STYLES -->
+    <link media="all" type="text/css" rel="stylesheet" href="assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.css">
+    <link media="all" type="text/css" rel="stylesheet" href="assets/global/plugins/bootstrap-datepicker/css/datepicker3.css">
+    <!-- END PAGE LEVEL STYLES -->
+
+
+<link media="all" type="text/css" rel="stylesheet" href="./assets/global/css/components.css">
+<link media="all" type="text/css" rel="stylesheet" href="./assets/global/css/plugins.css">
+<link media="all" type="text/css" rel="stylesheet" href="./assets/admin/layout/css/layout.css">
+<link media="all" type="text/css" rel="stylesheet" href="./assets/admin/layout/css/themes/darkblue.css">
+<link media="all" type="text/css" rel="stylesheet" href="./assets/admin/layout/css/custom.css">
+<link media="all" type="text/css" rel="stylesheet" href="./assets/global/plugins/froiden-helper/helper.css">
+
+
+
+
+
+<body class="page-header-fixed page-quick-sidebar-over-content page-style-square"> 
+
+        <!-- BEGIN HEADER -->
+<div class="page-header navbar navbar-fixed-top">
+    <!-- BEGIN HEADER INNER -->
+    <div class="page-header-inner">
+        <!-- BEGIN LOGO -->
+        <div class="page-logo">
+            <a href="main.php">
+               <h1 style="color: cornsilk; margin-top : -6px">DiagnoX.ai</h1>
+
+            </a>
+            <div class="menu-toggler sidebar-toggler hide">
+                <!-- DOC: Remove the above "hide" to enable the sidebar toggler button on header -->
+            </div>
+        </div>
+        <!-- END LOGO -->
+        <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+        <a href="javascript:;" class="menu-toggler responsive-toggler" data-toggle="collapse"
+           data-target=".navbar-collapse">
+        </a>
+        <!-- END RESPONSIVE MENU TOGGLER -->
+        <!-- BEGIN TOP NAVIGATION MENU -->
+        <div class="top-menu">
+            <ul class="nav navbar-nav pull-right">
+
+                <!-- <li class="dropdown dropdown-extended dropdown-notification" id="header_notification_bar">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
+                       data-close-others="true">
+                        <i class="icon-bell"></i>
+
+                        
+                    </a>
+
+
+                    <ul class="dropdown-menu">
+                        <li class="external">
+                            <h3><span class="bold">0 pending</span> notifications</h3>
+
+                        </li>
+                                            </ul>
+                </li> -->
+
+                <li class="dropdown dropdown-user">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
+                       data-close-others="true">
+
+                    <span class="username username-hide-on-mobile">
+                  Admin</span>
+                        <i class="fa fa-angle-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-default">
+                        <li>
+                            <a href="#">
+                                <i class="icon-user"></i> My Profile </a>
+                        </li>
+
+                        <li class="divider">
+                        </li>
+                        <!-- <li>
+                            <a href="https://hrm.froid.works/screenlock ">
+                                <i class="icon-lock"></i> Lock Screen </a>
+                        </li> -->
+                        <li>
+                            <a href="#" id="logout-form">
+                                <i class="icon-logout"></i> Log Out </a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- END USER LOGIN DROPDOWN -->
+
+            </ul>
+        </div>
+        <!-- END TOP NAVIGATION MENU -->
+    </div>
+    <!-- END HEADER INNER -->
+</div>
+<!-- END HEADER -->
+
+
+
+<form method="POST" action="https://hrm.froid.works" accept-charset="UTF-8" id="edit_form_leave"><input name="_method" type="hidden" value="PATCH"><input name="_token" type="hidden" value="02xMj5p3FIMvjKR0i8cWU3WVc3vW8nAoTluXXl5M">
+<div id="static_leave_requests" class="modal fade" tabindex="-1" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <span class="caption-subject font-red-sunglo bold uppercase">Leave Application</span>
+            </div>
+            <div class="modal-body" id="modal-data-leave">
+                
+            </div>
+        </div>
+
+    </div>
+</div>
+</div>
+</form>
+
+
+<script>
+    function show_application_notification(id) {
+        $("#modal-data-leave").html('<div class="text-center"><img src="./assets/admin/layout/img/loading-spinner-blue.gif"></div>');
+        var editUrl = "https://hrm.froid.works/admin/leave_applications/:id";
+        editUrl = editUrl.replace(':id', id);
+        $('#edit_form_leave').attr('action', editUrl);
+
+        var url = "https://hrm.froid.works/admin/leave_applications/:id";
+        url = url.replace(':id', id);
+        $('#edit_form_leave').attr('action', url);
+
+        $.ajax({
+            type: "GET",
+            url: url
+
+        }).done(function (response) {
+            $('#modal-data-leave').html(response);
+//
+        });
+    }
+</script>
+
+        <div class="clearfix">
+        </div>
+
+<!-- BEGIN CONTAINER -->
+<div class="page-container">
+
+         <!-- BEGIN SIDEBAR -->
+<div class="page-sidebar-wrapper">
+    <div class="page-sidebar navbar-collapse collapse">
+        <!-- BEGIN SIDEBAR MENU -->
+        <!-- DOC: Apply "page-sidebar-menu-light" class right after "page-sidebar-menu" to enable light sidebar menu style(without borders) -->
+        <!-- DOC: Apply "page-sidebar-menu-hover-submenu" class right after "page-sidebar-menu" to enable hoverable(hover vs accordion) sub menu mode -->
+        <!-- DOC: Apply "page-sidebar-menu-closed" class right after "page-sidebar-menu" to collapse("page-sidebar-closed" class must be applied to the body element) the sidebar sub menu mode -->
+        <!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+        <!-- DOC: Set data-keep-expand="true" to keep the submenues expanded -->
+        <!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+        <ul class="page-sidebar-menu" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+            <!-- DOC: To remove the sidebar toggler from the sidebar you just need to completely remove the below "sidebar-toggler-wrapper" LI element -->
+            <li class="sidebar-toggler-wrapper">
+                <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+                <div class="sidebar-toggler">
+                </div>
+                <!-- END SIDEBAR TOGGLER BUTTON -->
+            </li>
+
+
+            
+            <li class="start ">
+                <a href="dashboard.html">
+                    <i class="fa fa-home"></i>
+                    <span class="title">Dashboard</span>
+                    <span class="selected"></span>
+                </a>
+            </li>
+            
+
+
+            
+            <li class="active">
+                <a href="Patients.html">
+                    <i class="fa fa-users"></i>
+                    <span class="title">Patients</span>
+                </a>
+            </li>
+            
+
+
+            
+            <!-- <li class="">
+                <a href="https://hrm.froid.works/admin/departments">
+                    <i class="fa fa-briefcase"></i>
+                    <span class="title">Department</span>
+                </a>
+            </li>
+            
+
+            
+            <li class="">
+                <a href="https://hrm.froid.works/admin/awards">
+                    <i class="fa fa-trophy"></i>
+                    <span class="title">Award</span>
+                </a>
+            </li>
+            
+
+
+            
+            <li class="">
+                <a href="https://hrm.froid.works/admin/expenses">
+                    <i class="fa fa-money"></i>
+                    <span class="title">Expense</span>
+                </a>
+            </li>
+            
+
+
+            
+            <li class="">
+                <a href="https://hrm.froid.works/admin/holidays">
+                    <i class="fa fa-send"></i>
+                    <span class="title">Holidays</span>
+                </a>
+            </li>
+            
+
+
+            
+            <li class="">
+                <a href="javascript:;">
+                    <i class="fa fa-user"></i>
+                    <span class="title">Attendance</span>
+                    <span class="arrow "></span>
+                </a>
+                <ul class="sub-menu">
+                    <li class="">
+                        <a href="https://hrm.froid.works/admin/attendances/create">
+                            <i class="fa  fa-check"></i>
+                            Mark Attendance</a>
+                    </li>
+                    <li class="">
+                        <a href="https://hrm.froid.works/admin/attendances">
+                            <i class="fa  fa-eye"></i>
+                            View Attendance</a>
+                    </li>
+                    <li class="">
+                        <a href="https://hrm.froid.works/admin/leavetypes">
+                            <i class="fa fa-sitemap"></i>
+                            Leave Types</a>
+                    </li>
+                </ul>
+            </li>
+
+            
+
+            
+            <li class="">
+                <a href="https://hrm.froid.works/admin/leave_applications">
+                    <i class="fa fa-rocket"></i>
+                    <span class="title">Leave Applications</span>
+                </a>
+            </li>
+
+            
+
+
+            
+            <li class="">
+                <a href="https://hrm.froid.works/admin/noticeboards">
+                    <i class="fa fa-clipboard"></i>
+                    <span class="title">Notice Board</span>
+                </a>
+            </li> -->
+
+            
+            <li class="">
+                <a href="javascript:;">
+                    <i class="fa fa-cogs"></i>
+                    <span class="title">Settings</span>
+                    <span class="arrow "></span>
+                </a>
+                <ul class="sub-menu">
+                    <li class="">
+                        <a href="#">
+                            <i class="fa  fa-cog"></i>
+                            General Setting</a>
+                    </li>
+
+                    <li class="">
+                        <a href="#">
+                            <i class="fa fa-user"></i>
+                            Profile Setting</a>
+                    </li>
+                    <!-- <li class="">
+                        <a href="#">
+                            <i class="fa fa-bell"></i>
+                            Notification Setting</a>
+                    </li> -->
+
+                    <li class="">
+                        <a href="#">
+                            <i class="fa fa-bell"></i>
+                            Email Setting</a>
+                    </li>
+
+                    <li class="">
+                        <a href="#">
+                            <i class="fa fa-language"></i>
+                            Update Log</a>
+                    </li>
+                </ul>
+            </li>
+
+            
+
+        </ul>
+        <!-- END SIDEBAR MENU -->
+    </div>
+</div>
+<!-- END SIDEBAR -->
+    <!-- BEGIN CONTENT -->
+    <div class="page-content-wrapper">
+        <div class="page-content">
+     
+                
+    <!-- BEGIN PAGE HEADER-->
+    <h3 class="page-title">
+        <span class="fa fa-plus"></span> Add Patients
+    </h3>
+    <div class="page-bar">
+        <ul class="page-breadcrumb">
+            <li>
+                <i class="fa fa-home"></i>
+                <a href="#">Home</a>
+                <i class="fa fa-angle-right"></i>
+            </li>
+            <li>
+                <a href="#">Patients</a>
+                <i class="fa fa-angle-right"></i>
+            </li>
+            <li>
+                <a href="#">New Patients</a>
+            </li>
+        </ul>
+    </div>
+    <!-- END PAGE HEADER-->
+
+            <div class="row">
+            <div class="col-md-6">
+
+
+            </div>
+            <!-- <div class="col-md-6 form-group text-right">
+
+                <span id="load_notification"></span>
+                <input type="checkbox" onchange="ToggleEmailNotification('employee_add');return false;"
+                       class="make-switch" name="employee_add" checked
+                        data-on-color="success" data-on-text="Yes" data-off-text="No" data-off-color="danger">
+                <strong>Email Notification</strong><br>
+
+
+            </div> -->
+        </div>
+
+        
+                
+        <hr>
+        <div class="clearfix">
+        </div>
+        <form method="POST" action="https://hrm.froid.works/admin/employees" accept-charset="UTF-8" id="addEmployeeForm" class="form-horizontal" enctype="multipart/form-data"><input name="_token" type="hidden" value="02xMj5p3FIMvjKR0i8cWU3WVc3vW8nAoTluXXl5M">
+        <div class="row ">
+            <div class="col-md-6 col-sm-6">
+                <div class="portlet box purple-wisteria">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            <i class="fa fa-calendar"></i>Detail about Patient
+                        </div>
+
+                    </div>
+                    <div class="portlet-body">
+
+                        <div class="form-body">
+                            <div class="form-group ">
+                                <label class="control-label col-md-3">Photo</label>
+                                <div class="col-md-9">
+                                    <div class="fileinput fileinput-new" data-provides="fileinput">
+                                        <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;">
+                                            <img src="#"
+                                                 alt=""/>
+
+                                        </div>
+                                        <div class="fileinput-preview fileinput-exists thumbnail"
+                                             style="max-width: 200px; max-height: 150px;">
+                                        </div>
+                                        <div>
+        													<span class="btn default btn-file">
+        													<span class="fileinput-new">
+        													Select image </span>
+        													<span class="fileinput-exists">
+        													Change </span>
+        													 <input type="file" name="profileImage">
+        													</span>
+                                            <a href="#" class="btn btn-sm red fileinput-exists"
+                                               data-dismiss="fileinput">
+                                                Remove </a>
+                                        </div>
+                                    </div>
+                                    <div class="clearfix margin-top-10">
+                                                        <span class="label label-danger">
+                                                        NOTE! </span> Image Size must be (872px by 724px)
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Name <span class="required">* </span></label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="fullName" placeholder="Patient Name"
+                                           value="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Father's Name</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="fatherName" placeholder="Father Name">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Date of Birth</label>
+                                <div class="col-md-3">
+                                    <div class="input-group input-medium date date-picker" data-date-format="dd-mm-yyyy"
+                                         data-date-viewmode="years">
+                                        <input type="text" class="form-control" name="date_of_birth" readonly
+                                               value="">
+                                        <span class="input-group-btn">
+        												<button class="btn default" type="button"><i
+                                                                    class="fa fa-calendar"></i></button>
+        												</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Gender</label>
+                                <div class="col-md-9">
+                                    <select class="form-control" name="gender"><option value="male">Male</option><option value="female">Female</option></select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Phone</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="mobileNumber"
+                                           placeholder="Contact Number"
+                                           value="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Local
+                                    Address</label>
+                                <div class="col-md-9">
+                                    <textarea class="form-control" name="localAddress"
+                                              rows="3"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Permanent Address</label>
+                                <div class="col-md-9">
+                                    <textarea class="form-control" name="permanentAddress"
+                                              rows="3"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Discription</label>
+                                <div class="col-md-9">
+                                    <textarea class="form-control" name="Action against Disease."
+                                              rows="3"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Status </label>
+                                <div class="col-md-9">
+                                    <textarea class="form-control" name="Status about Disesase"
+                                              rows="3"></textarea>
+                                </div>
+                            </div>
+
+                            <!-- <h4><strong>Account Login</strong></h4>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Email<span class="required">* </span></label>
+                                <div class="col-md-9">
+                                    <input type="text" name="email" class="form-control"
+                                           value="">
+                                </div> -->
+                            <!-- </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Password<span class="required">* </span></label>
+                                <div class="col-md-9">
+                                    <input type="hidden" name="oldpassword">
+                                    <input type="password" name="password" class="form-control"
+                                           value="">
+                                </div>
+                            </div> -->
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="col-md-6 col-sm-6">
+                <div class="portlet box red-sunglo">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            <i class="fa fa-calendar"></i>Company Details
+                        </div>
+
+                    </div>
+                    <div class="portlet-body">
+
+                        <div class="form-body">
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Employee ID<span
+                                            class="required">* </span></label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="employeeID" placeholder="Employee ID"
+                                           value="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Department</label>
+                                <div class="col-md-9">
+                                    <select class="form-control select2me" id="department" onchange="dept();return false;" name="department"><option value="1">PHP</option><option value="2">Android Developer</option><option value="3">Human Resource</option><option value="4">Data Collection</option></select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Designation</label>
+                                <div class="col-md-9">
+
+                                    <select class="select2me form-control" name="designation" id="designation">
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label col-md-3">Date of Joining</label>
+                                <div class="col-md-3">
+                                    <div class="input-group input-medium date date-picker" data-date-format="dd-mm-yyyy"
+                                         data-date-viewmode="years">
+                                        <input type="text" class="form-control" name="joiningDate" readonly
+                                               value="">
+                                        <span class="input-group-btn">
+        												<button class="btn default" type="button"><i
+                                                                    class="fa fa-calendar"></i></button>
+        												</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Joining Salary</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="currentSalary"
+                                           placeholder="Current Salary"
+                                           value="">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="portlet box red-sunglo">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            <i class="fa fa-calendar"></i>Bank Account Details
+                        </div>
+
+                    </div>
+                    <div class="portlet-body">
+
+                        <div class="form-body">
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Account Holder Name</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="accountName"
+                                           placeholder="Account Holder Name"
+                                           value="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Account Number</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="accountNumber"
+                                           placeholder="Account Number"
+                                           value="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Bank Name</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="bank" placeholder="BANK Name"
+                                           value="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">IFSC Code</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="ifsc" placeholder="IFSC Code"
+                                           value="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">PAN Number </label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="pan" placeholder="PAN Number"
+                                           value="">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Branch</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="branch" placeholder="BRANCH"
+                                           value="">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <div class="clearfix">
+            
+            <!-- <div class="row ">
+                <div class="col-md-12 col-sm-12">
+                    <div class="portlet box purple-wisteria">
+                        <div class="portlet-title">
+                            <div class="caption">
+                                <i class="fa fa-calendar"></i>Documents
+                            </div>
+
+                        </div>
+                        <div class="portlet-body">
+
+                            <div class="form-body">
+                                <div class="form-group">
+                                    <label class="control-label col-md-2">Resume</label>
+                                    <div class="col-md-5">
+                                        <div class="fileinput fileinput-new" data-provides="fileinput">
+                                            <div class="input-group input-large">
+                                                <div class="form-control uneditable-input" data-trigger="fileinput">
+                                                    <i class="fa fa-file fileinput-exists"></i>&nbsp; <span
+                                                            class="fileinput-filename">
+        														</span>
+                                                </div>
+                                                <span class="input-group-addon btn default btn-file">
+        													<span class="fileinput-new">
+        													Select file </span>
+        													<span class="fileinput-exists">
+        													Change </span>
+        													<input type="file" name="resume">
+        													</span>
+                                                <a href="#" class="input-group-addon btn btn-sm red fileinput-exists"
+                                                   data-dismiss="fileinput">
+                                                    Remove </a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-2">Offer Letter</label>
+                                    <div class="col-md-5">
+                                        <div class="fileinput fileinput-new" data-provides="fileinput">
+                                            <div class="input-group input-large">
+                                                <div class="form-control uneditable-input" data-trigger="fileinput">
+                                                    <i class="fa fa-file fileinput-exists"></i>&nbsp; <span
+                                                            class="fileinput-filename">
+        														</span>
+                                                </div>
+                                                <span class="input-group-addon btn default btn-file">
+        													<span class="fileinput-new">
+        													Select file </span>
+        													<span class="fileinput-exists">
+        													Change </span>
+        													<input type="file" name="offerLetter">
+        													</span>
+                                                <a href="#" class="input-group-addon btn btn-sm red fileinput-exists"
+                                                   data-dismiss="fileinput">
+                                                    Remove </a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-2">Joining Letter</label>
+                                    <div class="col-md-5">
+                                        <div class="fileinput fileinput-new" data-provides="fileinput">
+                                            <div class="input-group input-large">
+                                                <div class="form-control uneditable-input" data-trigger="fileinput">
+                                                    <i class="fa fa-file fileinput-exists"></i>&nbsp; <span
+                                                            class="fileinput-filename">
+        														</span>
+                                                </div>
+                                                <span class="input-group-addon btn default btn-file">
+        													<span class="fileinput-new">
+        													Select file </span>
+        													<span class="fileinput-exists">
+        													Change </span>
+        													<input type="file" name="joiningLetter">
+        													</span>
+                                                <a href="#" class="input-group-addon btn btn-sm red fileinput-exists"
+                                                   data-dismiss="fileinput">
+                                                    Remove </a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-2">Contract and Agreement</label>
+                                    <div class="col-md-5">
+                                        <div class="fileinput fileinput-new" data-provides="fileinput">
+                                            <div class="input-group input-large">
+                                                <div class="form-control uneditable-input" data-trigger="fileinput">
+                                                    <i class="fa fa-file fileinput-exists"></i>&nbsp; <span
+                                                            class="fileinput-filename">
+        														</span>
+                                                </div>
+                                                <span class="input-group-addon btn default btn-file">
+        													<span class="fileinput-new">
+        													Select file </span>
+        													<span class="fileinput-exists">
+        													Change </span>
+        													<input type="file" name="contract">
+        													</span>
+                                                <a href="#" class="input-group-addon btn btn-sm red fileinput-exists"
+                                                   data-dismiss="fileinput">
+                                                    Remove </a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label col-md-2">ID Proof</label>
+                                    <div class="col-md-5">
+                                        <div class="fileinput fileinput-new" data-provides="fileinput">
+                                            <div class="input-group input-large">
+                                                <div class="form-control uneditable-input" data-trigger="fileinput">
+                                                    <i class="fa fa-file fileinput-exists"></i>&nbsp; <span
+                                                            class="fileinput-filename">
+        														</span>
+                                                </div>
+                                                <span class="input-group-addon btn default btn-file">
+        													<span class="fileinput-new">
+        													Select file </span>
+        													<span class="fileinput-exists">
+        													Change </span>
+        													<input type="file" name="IDProof">
+        													</span>
+                                                <a href="#" class="input-group-addon btn btn-sm red fileinput-exists"
+                                                   data-dismiss="fileinput">
+                                                    Remove </a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix">
+            </div>
+            <div class="form-actions">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="row">
+                            <div class="col-md-offset-3 col-md-9">
+                                <button type="button" onclick="addEmployee()" class="btn green">
+                                    <i class="fa fa-plus"></i> Submit
+                                </button>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        </form>
+        <hr> -->
+
+
+        </div>
+        
+    </div>
+    <!-- END CONTENT -->
+    
+</div>
+<!-- END CONTAINER -->
+
+    <!-- BEGIN FOOTER -->
+<div class="page-footer">
+	<div class="page-footer-inner">
+		 2019 &copy; DiagnoX
+	</div>
+	<div class="scroll-to-top">
+		<i class="icon-arrow-up"></i>
+	</div>
+</div>
+<!-- END FOOTER -->
+        <!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+<!-- BEGIN CORE PLUGINS -->
+<!--[if lt IE 9]>
+
+<script src="https://hrm.froid.works/assets/global/plugins/respond.min.js"></script>
+<script src="https://hrm.froid.works/assets/global/plugins/excanvas.min.js"></script>
+
+<![endif]-->
+<script src="./assets/global/plugins/jquery.min.js"></script>
+<script src="./assets/global/plugins/jquery-ui/jquery-ui-1.10.3.custom.min.js"></script>
+<script src="assets/global/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="./assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js"></script>
+<script src="./assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<script src="./assets/global/plugins/froiden-helper/helper.js"></script>
+
+<script src="./assets/global/scripts/metronic.js"></script>
+<script src="./assets/admin/layout/scripts/layout.js"></script>
+
+
+<!-- END PAGE LEVEL SCRIPTS -->
+<script>
+    jQuery(document).ready(function () {
+        Metronic.init(); // init metronic core componets
+        Layout.init(); // init layout
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $('.demo-loading-btn')
+            .click(function () {
+                var btn = $(this)
+                btn.button('loading')
+                setTimeout(function () {
+                    btn.button('reset')
+                }, 8000)
+            });
+        $('.demo-loading-btn-ajax')
+            .click(function () {
+                var btn = $(this)
+                btn.button('loading')
+                setTimeout(function () {
+                    btn.button('reset')
+                }, 500)
+            });
+
+
+    });
+
+  
+    function updateLeaveApplication(id) {
+
+        var url = "https://hrm.froid.works/admin/leave_applications/:id";
+        url = url.replace(':id', id);
+
+        $.easyAjax({
+            type: 'PUT',
+            url: url,
+            container: '#edit_form_leave',
+            data: $('#edit_form_leave').serialize(),
+            success: function () {
+                window.location.reload();
+            }
+        });
+
+    }
+</script>
+
+    <!-- BEGIN PAGE LEVEL PLUGINS -->
+    <script src="assets/global/plugins/bootstrap-fileinput/bootstrap-fileinput.js"></script>
+    <script src="assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+    <script src="assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
+    <script src="assets/admin/pages/scripts/components-pickers.js"></script>
+    <!-- END PAGE LEVEL PLUGINS -->
+
+
+
+
+    <script>
+        jQuery(document).ready(function () {
+            ComponentsPickers.init();
+            dept();
+        });
+
+        function dept() {
+            $.getJSON("https://hrm.froid.works/admin/departments/ajax_designation",
+                {deptID: $('#department').val()},
+                function (data) {
+                    var model = $('#designation');
+                    model.empty();
+                    $.each(data, function (index, element) {
+                        model.append("<option value='" + element.id + "'>" + element.designation + "</option>");
+                    });
+                });
+        }
+
+        // Show Add Edit Function
+        function addEmployee() {
+            var url = "https://hrm.froid.works/admin/employees";
+            $.easyAjax({
+                type: 'POST',
+                url: url,
+                container: "#addEmployeeForm",
+                file: true
+            });
+        }
+
+    </script>
+
+</body>
+<!-- END BODY -->
+</html>

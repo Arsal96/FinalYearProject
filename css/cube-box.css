@@ -1,0 +1,105 @@
+/* body{
+    background: cadetblue;
+} */
+
+
+.body{
+    /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; */
+    /* letter-spacing: 10px; */
+    background-color: #dbdbdb;
+  }
+
+.wrapper{
+    width: 200px;
+    height: 200px;
+    margin: 0% auto;
+}
+
+
+/* related to box,animate time transform etc */
+.box-area{
+    animation: animate 10s ease-in-out infinite;
+    transform-style: preserve-3d;
+    transform-origin: 100px 100px 0;
+}
+
+.box-area div{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    line-height: 200px;
+}
+
+.box-area .box1{
+    background-image: url(1.jfif) ;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: center center;
+    transform: translateZ(100px);
+
+}
+.box-area .box2{
+    background-image: url(2.jfif) ;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: center center;   
+    transform: rotateY(90deg) translateZ(100px);   
+
+}
+.box-area .box3{
+    background-image: url(1.jfif) ;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: center center;
+    transform: rotateY(90deg) rotateX(90deg) translateZ(100px);    
+
+}
+.box-area .box4{
+    background-image: url(2.jfif) ;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: center center;
+    transform: rotateY(180deg) rotateZ(90deg) translateZ(100px); 
+
+}
+.box-area .box5{
+    background-image: url(1.jfif) ;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: center center;
+    transform: rotateY(-90deg) rotate  Z(90deg) translateZ(100px); 
+
+}
+
+.box-area .box6{
+    background-image: url(2.jfif) ;
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: center center;
+    transform: rotateX(-90deg) translateZ(100px);
+
+}
+
+@keyframes animate{
+    from,to{
+        transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+
+    }
+    16%{
+        transform: rotateY(-90deg);
+    }
+    33%{
+        transform: rotateY(-90deg) rotateZ(90deg);
+    }
+    50%{
+        transform: rotateY(-180deg) rotateZ(90deg);
+    }
+    66%{
+        transform: rotateY(-270deg) rotateZ(90deg);
+    }
+    83%{
+        transform: rotateX(90deg);
+    }
+    
+}
+
