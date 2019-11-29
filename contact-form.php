@@ -116,15 +116,15 @@ header("location:contact-from.php?note=success");
 
                                     <form action="#" method="GET" >
                                         <div class="clearfix">
-                                            <input class="col2 first" type="text" placeholder="First Name" name="fname" pattern="[A-Za-z]{3,}" title="Please enter a corecct name" >
-                                            <input class="col2 last" type="text" placeholder="Last Name" name="lname" pattern="[A-Za-z]{3,}" title="Please enter a corecct name">
+                                            <input class="col2 first" type="text" placeholder="First Name" required  name="fname" pattern="[A-Za-z]{3,}" title="Please enter a corecct name" >
+                                            <input class="col2 last" type="text" placeholder="Last Name" required name="lname" pattern="[A-Za-z]{3,}" title="Please enter a corecct name">
                                         </div>
                                         <div class="clearfix">
                                             <input  class="col2 first" type="Email" placeholder="Email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"> 
-                                            <input class="col2 last" type="text" placeholder="03xxxxxxxxx" min-length="11" maxlength="11" name="contact_number" pattern="[0-9]{10,11}" title="Please enter a correct number (03001234567)">
+                                            <input class="col2 last" type="text" required placeholder="03xxxxxxxxx" min-length="11" maxlength="11" name="contact_number" pattern="[0-9]{10,11}" title="Please enter a correct number (03001234567)">
                                         </div>
                                         <div class="clearfix">
-                                            <textarea name="message" id="" cols="30" rows="7" placeholder="Your message here..."></textarea>
+                                            <textarea name="message" required min="5" max="300" id="" cols="30" rows="7" placeholder="Your message here..."></textarea>
                                         </div>
 
 
@@ -146,7 +146,7 @@ header("location:contact-from.php?note=success");
 
 
 
-            <?php include_once('footer.html') ?>
+ <?php include_once('footer.html') ?>
 </body>
 <script src="js/sticky-header.js"></script>
 
