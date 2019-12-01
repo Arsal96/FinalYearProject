@@ -53,12 +53,12 @@ Give an example
 ```
 
 ## Test Card Details
-4242424242424242 – Visa
-4000056655665556 – Visa (debit)
-5555555555554444 – Mastercard
-5200828282828210 – Mastercard (debit)
-378282246310005 – American Express
-6011111111111117 – Discover
+4242424242424242 – Visa <br/>
+4000056655665556 – Visa (debit) <br/>
+5555555555554444 – Mastercard <br/>
+5200828282828210 – Mastercard (debit) <br/>
+378282246310005 – American Express <br/>
+6011111111111117 – Discover <br/>
 
 ## Deployment
 
