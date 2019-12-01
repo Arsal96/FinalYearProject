@@ -1,60 +1,31 @@
-<?php include 'controllers/authController.php' ?>
-
-<?php
-// redirect user to login page if they're not logged in
-if (isset($_SESSION['id'])) {
-    header('location: main.php');
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta name="author" content="Kodinger">
-	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<title>DiagnoX.ai - Login</title>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-	<link rel="stylesheet" type="text/css" href="css/my-login.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Our Pricing</title>
+<link rel="stylesheet" href="css/pricing-style.css">
+<link rel="stylesheet" href="css/style.css">
 
-	<link rel="stylesheet" href="css/style.css">
-
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    
 	<link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/fa-fonts.css">
 </head>
-
-
-<!-- 
-<style>
-
-.sticky {
-  position: fixed;
-  top: 0;
-  width: 100%;
-}
-
-.sticky + .content {
-  padding-top: 102px;
-}
-</style> -->
-
-
-<style>
-@media screen and (min-width: 750px) {
-#bars
-{
-  
-    display:none;
-}
-}
-</style>
-       
-
 <body>
-	
-<div class="splash">
+    
 
-<!-- Header Section -->
+
+
+
+
+
+<div class="splash" style="padding-bottom:10px">
+
+
+
+<!-- TOP NAV BAR START -->
 
 <nav class="navbar navbar-icon-top navbar-expand-lg">
             <a class="navbar-brand" href="main.php"
@@ -62,9 +33,7 @@ if (isset($_SESSION['id'])) {
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <i class="fa fa-bars" id="bars" aria-hidden="true"   data-toggle="collapse" data-target="#navbarSupportedContent"></i>
 
-            
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul style="list-style-type: none;" style="list-style-type: none;" class="navbar-nav mr-auto">
                     <li class="nav-item active">
@@ -77,7 +46,7 @@ if (isset($_SESSION['id'])) {
                     </li>
                     <li class="nav-item">
                         <a style="
-                text-decoration: none;" class="nav-link" href="prediction/predict.php">
+                text-decoration: none;" class="nav-link" href="diagnose.php">
                             <i class="fa fa-plus-square">
                                 <!-- <span class="badge badge-danger">11</span> -->
                             </i>
@@ -205,93 +174,80 @@ if (isset($_SESSION['id'])) {
             </div>
         </nav>
 
+<!-- TOP NAVBAR END -->
 
+<!-- PRICING SECTION START-->
 
-
- <!--  LOgin Content -->
-<div  class="my-login-page">
-	<section class="h-100">
-		<div class="container h-100">
-			<div class="row justify-content-md-center h-100">
-				<div class="card-wrapper">
-					<div class="brand">
-						<img src="img/logo.jpg" alt="logo">
-					</div>
-					<div class="card fat">
-						<div class="card-body">
-							<!-- <h4 class="card-title">Lxogin</h4> -->
-
-
-							<h3 class="text-center form-title">Login</h3> <!-- or Login -->
-
-<?php
-if (count($errors) > 0): ?>
-  <div class="alert alert-danger">
-    <?php foreach ($errors as $error): ?>
-    <li>
-      <?php echo $error; ?>
-    </li>
-    <?php endforeach;?>
+<section>
+  <div class='pricing pricing-palden' style="margin-bottom:0px">
+    <div class='pricing-item'>
+      <div class='pricing-deco'>
+        <svg class='pricing-deco-img' enable-background='new 0 0 300 100' height='100px' id='Layer_1' preserveAspectRatio='none' version='1.1' viewBox='0 0 300 100' width='300px' x='0px' xml:space='preserve' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns='http://www.w3.org/2000/svg' y='0px'>
+          <path class='deco-layer deco-layer--1' d='M30.913,43.944c0,0,42.911-34.464,87.51-14.191c77.31,35.14,113.304-1.952,146.638-4.729&#x000A;	c48.654-4.056,69.94,16.218,69.94,16.218v54.396H30.913V43.944z' fill='#FFFFFF' opacity='0.6'></path>
+          <path class='deco-layer deco-layer--2' d='M-35.667,44.628c0,0,42.91-34.463,87.51-14.191c77.31,35.141,113.304-1.952,146.639-4.729&#x000A;	c48.653-4.055,69.939,16.218,69.939,16.218v54.396H-35.667V44.628z' fill='#FFFFFF' opacity='0.6'></path>
+          <path class='deco-layer deco-layer--3' d='M43.415,98.342c0,0,48.283-68.927,109.133-68.927c65.886,0,97.983,67.914,97.983,67.914v3.716&#x000A;	H42.401L43.415,98.342z' fill='#FFFFFF' opacity='0.7'></path>
+          <path class='deco-layer deco-layer--4' d='M-34.667,62.998c0,0,56-45.667,120.316-27.839C167.484,57.842,197,41.332,232.286,30.428&#x000A;	c53.07-16.399,104.047,36.903,104.047,36.903l1.333,36.667l-372-2.954L-34.667,62.998z' fill='#FFFFFF'></path>
+        </svg>
+        <div class='pricing-price'><span class='pricing-currency'>PKR</span>1500
+          <span class='pricing-period'>/ mo</span>
+        </div>
+        <h3 class='pricing-title'>Basic</h3>
+      </div>
+      <ul class='pricing-feature-list'>
+        <li class='pricing-feature'>1 GB of space</li>
+        <li class='pricing-feature'>Support at PKR 800/hour</li>
+        <li class='pricing-feature'>20 Predictions</li>
+      </ul>
+      <button class='pricing-action'>Choose plan</button>
+    </div>
+    <div class='pricing-item pricing__item--featured'>
+      <div class='pricing-deco'>
+        <svg class='pricing-deco-img' enable-background='new 0 0 300 100' height='100px' id='Layer_1' preserveAspectRatio='none' version='1.1' viewBox='0 0 300 100' width='300px' x='0px' xml:space='preserve' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns='http://www.w3.org/2000/svg' y='0px'>
+          <path class='deco-layer deco-layer--1' d='M30.913,43.944c0,0,42.911-34.464,87.51-14.191c77.31,35.14,113.304-1.952,146.638-4.729&#x000A;	c48.654-4.056,69.94,16.218,69.94,16.218v54.396H30.913V43.944z' fill='#FFFFFF' opacity='0.6'></path>
+          <path class='deco-layer deco-layer--2' d='M-35.667,44.628c0,0,42.91-34.463,87.51-14.191c77.31,35.141,113.304-1.952,146.639-4.729&#x000A;	c48.653-4.055,69.939,16.218,69.939,16.218v54.396H-35.667V44.628z' fill='#FFFFFF' opacity='0.6'></path>
+          <path class='deco-layer deco-layer--3' d='M43.415,98.342c0,0,48.283-68.927,109.133-68.927c65.886,0,97.983,67.914,97.983,67.914v3.716&#x000A;	H42.401L43.415,98.342z' fill='#FFFFFF' opacity='0.7'></path>
+          <path class='deco-layer deco-layer--4' d='M-34.667,62.998c0,0,56-45.667,120.316-27.839C167.484,57.842,197,41.332,232.286,30.428&#x000A;	c53.07-16.399,104.047,36.903,104.047,36.903l1.333,36.667l-372-2.954L-34.667,62.998z' fill='#FFFFFF'></path>
+        </svg>
+        <div class='pricing-price'><span class='pricing-currency'>PKR</span>3000
+          <span class='pricing-period'>/ mo</span>
+        </div>
+        <h3 class='pricing-title'>Professionals</h3>
+      </div>
+      <ul class='pricing-feature-list'>
+        <li class='pricing-feature'>5 GB of space</li>
+        <li class='pricing-feature'>Support at PKR 500/hour</li>
+        <li class='pricing-feature'>50 Diagnosis</li>
+      </ul>
+      <button class='pricing-action'>Choose plan</button>
+    </div>
+    <div class='pricing-item'>
+      <div class='pricing-deco'>
+        <svg class='pricing-deco-img' enable-background='new 0 0 300 100' height='100px' id='Layer_1' preserveAspectRatio='none' version='1.1' viewBox='0 0 300 100' width='300px' x='0px' xml:space='preserve' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns='http://www.w3.org/2000/svg' y='0px'>
+          <path class='deco-layer deco-layer--1' d='M30.913,43.944c0,0,42.911-34.464,87.51-14.191c77.31,35.14,113.304-1.952,146.638-4.729&#x000A;	c48.654-4.056,69.94,16.218,69.94,16.218v54.396H30.913V43.944z' fill='#FFFFFF' opacity='0.6'></path>
+          <path class='deco-layer deco-layer--2' d='M-35.667,44.628c0,0,42.91-34.463,87.51-14.191c77.31,35.141,113.304-1.952,146.639-4.729&#x000A;	c48.653-4.055,69.939,16.218,69.939,16.218v54.396H-35.667V44.628z' fill='#FFFFFF' opacity='0.6'></path>
+          <path class='deco-layer deco-layer--3' d='M43.415,98.342c0,0,48.283-68.927,109.133-68.927c65.886,0,97.983,67.914,97.983,67.914v3.716&#x000A;	H42.401L43.415,98.342z' fill='#FFFFFF' opacity='0.7'></path>
+          <path class='deco-layer deco-layer--4' d='M-34.667,62.998c0,0,56-45.667,120.316-27.839C167.484,57.842,197,41.332,232.286,30.428&#x000A;	c53.07-16.399,104.047,36.903,104.047,36.903l1.333,36.667l-372-2.954L-34.667,62.998z' fill='#FFFFFF'></path>
+        </svg>
+        <div class='pricing-price'><span class='pricing-currency'>PKR</span>10000
+          <span class='pricing-period'>/ yr</span>
+        </div>
+        <h3 class='pricing-title'>Enterprise</h3>
+      </div>
+      <ul class='pricing-feature-list'>
+        <li class='pricing-feature'>20 GB of space</li>
+        <li class='pricing-feature'>Support at PKR 500/hour</li>
+        <li class='pricing-feature'>Unlimited Diagnosis</li>
+      </ul>
+      <button class='pricing-action'>Choose plan</button>
+    </div>
   </div>
-<?php endif;?>
+</section>
+   </div>
 
-							<form action="login.php" method="post" class="my-login-validation" novalidate="">
-								<div class="form-group">
-									<label for="email">E-Mail Address</label>
-									<input id="email" type="email" class="form-control" name="username" value="" placeholder="Enter your Email-Address"   required autofocus>
-									<div class="invalid-feedback">
-										Email is invalid
-									</div>
-								</div>
-
-								<div class="form-group">
-									<label for="password">Password
-										<a href="reset.html" class="float-right">
-											Forgot Password?
-										</a>
-									</label>
-									<input id="password" type="password" class="form-control" name="password" placeholder="Enter your Password" minlength=5 required data-eye>
-								    <div class="invalid-feedback">
-								    	Password is required and can't less than 5 characters
-							    	</div>
-								</div>
-
-								<div class="form-group">
-									<div class="custom-checkbox custom-control">
-										<input type="checkbox" name="remember" id="remember" class="custom-control-input">
-										<label for="remember" class="custom-control-label">Remeber Me</label>
-									</div>
-								</div>
-
-								<div class="form-group m-0">
-									<button type="submit"  name="login-btn" class="btn btn-primary btn-block">
-										Login
-									</button>
-								</div>
-								<div class="mt-4 text-center">
-									Don't have an account? <a href="register.php">Create One</a>
-								</div>
-							</form>
-						</div>
-					</div>
-					<div style="text-align: center" class="footer">
+<!-- PRICING SECTION END -->
+                                 
+                                    <div style="text-align: center" class="footer"  padding-top:0px;> 
 						Copyright &copy; 2019 &mdash; DiagnoX.ai 
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-    <?php include_once('footer.html') ?>
-	</div>
-	</body>
-
-	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-	<script src="js/my-login.js"></script>
-
-
-
-	
-
+	 </div>
+</body>
 </html>

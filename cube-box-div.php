@@ -65,14 +65,22 @@
                             </li>
                             <li class="nav-item">
                                 <a style="
-                        text-decoration: none;" class="nav-link" href="predict.php">
+                        text-decoration: none;" class="nav-link" href="prediction/predict.php">
                                     <i class="fa fa-plus-square">
                                         <!-- <span class="badge badge-danger">11</span> -->
                                     </i>
                                     Try Demo
                                 </a>
                             </li>
-        
+                            <li class="nav-item">
+                        <a style="
+                text-decoration: none;" class="nav-link" href="pricing.php">
+                            <i class="fa fa-usd">
+                                <!-- <span class="badge badge-danger">11</span> -->
+                            </i>
+                            Pricing
+                        </a>
+                    </li>
                             <li class="nav-item dropdown">
                                 <a style="
                       text-decoration: none;" class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"

@@ -251,11 +251,7 @@
     <!-- BEGIN CONTENT -->
     <div class="page-content-wrapper">
         <div class="page-content">
-     
- <?php
-$subject = $_GET['id'];
-echo $subject;
-?>
+
 
     <!-- BEGIN PAGE HEADER-->
     <h3 class="page-title">
@@ -267,45 +263,34 @@ echo $subject;
 
     <div class="container box">
    <h1 align="center" style="color:red">PATIENT's MANAGEMENT</h1>
-   <!-- <br /> -->
-   <div class="table-responsive">
-    <!-- <br /> -->
-    <div align="right">
-     <button type="button" id="add_button" data-toggle="modal" data-target="#userModal" class="btn btn-info btn-lg">Add Patient</button>
+ 
+
+<div class="row ">
+
+    
+    <div class=" jumbotron col-md-4 col-lg-4" >
+       <label for="">See Your Patients</label>
+       <br>
+       <br>
+       <button type="button" class="btn btn-info">Dark</button>
+
+
     </div>
-    <br />
-    <!-- <br /> -->
-    <table id="user_data" class="table table-bordered table-striped table-hover">
-     <thead>
-      <tr>
-       <th width="10%">Image</th>
-       <th>First name</th>
-       <th>Last Name</th>
-       <th >Address</th>
-       <th>Contact No</th>
-       <th>Appoinments</th>
-       <th>Edit</th>
-       <th>Delete</th>
-      </tr>
-     </thead>
-    </table>
-    
-   </div>
-  </div>
-
-                </div>
-            </div>
-        </div>
-
-    </div> 
-
-    
-        </div>
-        
-    </div> -->
-    <!-- END CONTENT -->
+    <div class=" jumbotron col-md-4 col-lg-4">
+    <label for="">See Your Patients</label>
+       <br>
+       <br>
+       <button type="button" class="btn btn-danger">Dark</button>
+    </div>
+    <div class=" jumbotron col-md-4 col-lg-4" >
+    <label for="">See Your Patients</label>
+       <br>
+       <br>
+       <button type="button" class="btn btn-info">Dark</button>
+    </div>
     
 </div>
+
 <!-- END CONTAINER -->
 
 

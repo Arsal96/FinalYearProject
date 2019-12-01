@@ -63,7 +63,15 @@ if (isset($_SESSION['email'])) {
                             Try Demo
                         </a>
                     </li>
-
+                    <li class="nav-item">
+                        <a style="
+                text-decoration: none;" class="nav-link" href="pricing.php">
+                            <i class="fa fa-usd">
+                                <!-- <span class="badge badge-danger">11</span> -->
+                            </i>
+                            Pricing
+                        </a>
+                    </li>
 
 
                     <li class="nav-item dropdown">
@@ -178,7 +186,10 @@ if (isset($_SESSION['email'])) {
 
 
 
-<body class="my-login-page">
+
+
+
+        <body class="my-login-page">
 	<section class="h-100">
 		<div class="container h-100">
 			<div class="row justify-content-md-center h-100">

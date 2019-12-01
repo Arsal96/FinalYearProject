@@ -44,14 +44,6 @@
 
 
 
-<?php include '../controllers/authController.php' ?>
-
-<?php
-// redirect user to login page if they're not logged in
-if (!(isset($_SESSION['id']))) {
-    header('location: ../main.php');
-}
-?>
 
 
 
@@ -123,25 +115,8 @@ if (!(isset($_SESSION['id']))) {
                                 <i class="icon-lock"></i> Lock Screen </a>
                         </li> -->
                         <li>
-
-
-<?php
-
-
-echo '<a    href="../logout.php">
-                  <i class="icon-logout"> </i>Logout  </a>';
-                  
-                 
-//echo "<br>";
-//if(isset($_SESSION['email'])) echo '<a>'.$_SESSION['email'].'</a>';
-
-
-?>
-
-
-
-                            <!-- <a href="#" id="logout-form">
-                                <i class="icon-logout"></i> Log Out </a> -->
+                            <a href="#" id="logout-form">
+                                <i class="icon-logout"></i> Log Out </a>
                         </li>
                     </ul>
                 </li>
@@ -154,26 +129,6 @@ echo '<a    href="../logout.php">
     <!-- END HEADER INNER -->
 </div>
 <!-- END HEADER -->
-
-
-<!-- 
-<form method="POST" action="https://hrm.froid.works" accept-charset="UTF-8" id="edit_form_leave"><input name="_method" type="hidden" value="PATCH"><input name="_token" type="hidden" value="02xMj5p3FIMvjKR0i8cWU3WVc3vW8nAoTluXXl5M">
-<div id="static_leave_requests" class="modal fade" tabindex="-1" data-backdrop="static" data-keyboard="false">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                <span class="caption-subject font-red-sunglo bold uppercase">Leave Application</span>
-            </div>
-            <div class="modal-body" id="modal-data-leave">
-                
-            </div>
-        </div>
-
-    </div>
-</div>
-</div>
-</form> -->
 
 
 </script>
@@ -276,6 +231,7 @@ echo '<a    href="../logout.php">
     <!-- BEGIN CONTENT -->
     <div class="page-content-wrapper">
         <div class="page-content">
+     
 
 
     <!-- BEGIN PAGE HEADER-->

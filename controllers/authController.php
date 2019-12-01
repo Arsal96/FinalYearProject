@@ -97,9 +97,20 @@ if (isset($_POST['login-btn'])) {
                 $_SESSION['verified'] = $user['verified'];
                 $_SESSION['message'] = 'You are logged in!';
                 $_SESSION['type'] = $user['user_type'];
-                header('location: ./main.php');
+
+if ($_SESSION['type'] =='Doctor') {
+    header('location: ./admin/patients.php');
+
+    exit(0);
+}
+else {
+     header('location: ./main.php');
                 echo "login success";
                 exit(0);
+    
+}
+
+               
             } 
             else { // if password does not match
                 
