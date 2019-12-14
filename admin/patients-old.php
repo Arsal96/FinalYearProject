@@ -136,7 +136,7 @@ $(document).ready(function(){
   },
   "columnDefs":[
    {
-    "targets":[0,3],
+    "targets":[0,5,6],
     "orderable":false,
    },
   ],

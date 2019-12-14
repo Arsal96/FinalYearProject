@@ -158,7 +158,7 @@
 
                                             echo 'Logout';
                                             echo "<br>";
-                                            if(isset($_SESSION['email'])) echo $_SESSION['email'];
+                                            if(isset($_SESSION['email'])) echo $_SESSION['username'];
 
                                         }
                                         ?>

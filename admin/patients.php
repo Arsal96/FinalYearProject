@@ -35,28 +35,36 @@
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" />
 
 
-<link media="all" type="text/css" rel="stylesheet" href="./assets/global/css/components.css">
-<link media="all" type="text/css" rel="stylesheet" href="./assets/global/css/plugins.css">
-<link media="all" type="text/css" rel="stylesheet" href="./assets/admin/layout/css/layout.css">
-<link media="all" type="text/css" rel="stylesheet" href="./assets/admin/layout/css/themes/darkblue.css">
-<link media="all" type="text/css" rel="stylesheet" href="./assets/admin/layout/css/custom.css">
-<link media="all" type="text/css" rel="stylesheet" href="./assets/global/plugins/froiden-helper/helper.css">
+    <link media="all" type="text/css" rel="stylesheet" href="./assets/global/css/components.css">
+    <link media="all" type="text/css" rel="stylesheet" href="./assets/global/css/plugins.css">
+    <link media="all" type="text/css" rel="stylesheet" href="./assets/admin/layout/css/layout.css">
+    <link media="all" type="text/css" rel="stylesheet" href="./assets/admin/layout/css/themes/darkblue.css">
+    <link media="all" type="text/css" rel="stylesheet" href="./assets/admin/layout/css/custom.css">
+    <link media="all" type="text/css" rel="stylesheet" href="./assets/global/plugins/froiden-helper/helper.css">
+
 
 
 
 <?php include '../controllers/authController.php' ?>
 
 <?php
+
 // redirect user to login page if they're not logged in
 if (!(isset($_SESSION['id']))) {
-    header('location: ../main.php');
+    header('location: ../login.php');
 }
+
+if (!(isset($_SESSION['type'])=='Doctor'))
+ {
+    header('location: ../main.php');
+
+
+}
+
 ?>
 
 
-
-
-
+<!-- BODY STARTS HER -->
 
 <body class="page-header-fixed page-quick-sidebar-over-content page-style-square"> 
 
@@ -138,8 +146,6 @@ echo '<a    href="../logout.php">
 
 ?>
 
-
-
                             <!-- <a href="#" id="logout-form">
                                 <i class="icon-logout"></i> Log Out </a> -->
                         </li>
@@ -177,9 +183,9 @@ echo '<a    href="../logout.php">
 
 
 </script>
-
+<!-- 
         <div class="clearfix">
-        </div>
+        </div> -->
 
 <!-- BEGIN CONTAINER -->
 <div class="page-container">
@@ -206,7 +212,7 @@ echo '<a    href="../logout.php">
 
             
             <li class="start active">
-                <a href="#">
+                <a href="dashboard.php">
                     <i class="fa fa-home"></i>
                     <span class="title">Dashboard</span>
                     <span class="selected"></span>
@@ -284,10 +290,7 @@ echo '<a    href="../logout.php">
         <small>reports & statistics</small>
     </h3>
 
-
-
-    <div class="container box">
-   <h1 align="center" style="color:red">PATIENT's MANAGEMENT</h1>
+ <h1 align="center" style="color:red">PATIENT's MANAGEMENT</h1>
    <!-- <br /> -->
    <div class="table-responsive">
     <!-- <br /> -->
@@ -296,10 +299,10 @@ echo '<a    href="../logout.php">
     </div>
     <br />
     <!-- <br /> -->
-    <table id="user_data" class="table table-bordered table-striped table-hover">
+    <table id="user_data" class="table table-bordered table-striped table-hover table-reponsive">
      <thead>
       <tr>
-       <th width="10%">Image</th>
+       <th>Image</th>
        <th>First name</th>
        <th>Last Name</th>
        <th >Address</th>
@@ -312,6 +315,9 @@ echo '<a    href="../logout.php">
     </table>
     
    </div>
+
+    <div class="container box">
+  
   </div>
 
                 </div>
@@ -479,7 +485,7 @@ $(document).ready(function(){
   },
   "columnDefs":[
    {
-    "targets":[0,3],
+    "targets":[0,5,6],
     "orderable":false,
    },
   ],

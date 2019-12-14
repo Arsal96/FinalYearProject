@@ -16,6 +16,59 @@ function sendVerificationEmail($userEmail, $token)
     <html lang="en">
 
     <head>
+      <meta charset="UTF-8"> 
+      <title>Test mail</title>
+      <style>
+        .wrapper {
+          padding: 20px;
+          color: #444;
+          font-size: 1.3em;
+        }
+        a {
+          background: black;
+          text-decoration: none;
+          padding: 8px 15px;
+          border-radius: 5px;
+          color: white;
+        }
+      </style>
+    </head>
+
+    <body>
+      <div class="wrapper">
+        <p>Thank you for signing up on our site. Please click on the link below to verify your account:.</p>
+        <a href="http://localhost/adeel/verify-email.php?token=' . $token . '">Verify Email!</a>
+      </div>
+    </body>
+
+    </html>';
+
+    // Create a message
+    $message = (new Swift_Message('Verify your email'))
+        ->setFrom("terbela321@gmail.com")
+        ->setTo($userEmail)
+        ->setBody($body, 'text/html');
+
+    // Send the message
+    $result = $mailer->send($message);
+
+    if ($result > 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+
+
+
+function sendForgotEmail($userEmail, $token)
+{
+    global $mailer;
+    $body = '<!DOCTYPE html>
+    <html lang="en">
+
+    <head>
       <meta charset="UTF-8">
       <title>Test mail</title>
       <style>
@@ -25,26 +78,26 @@ function sendVerificationEmail($userEmail, $token)
           font-size: 1.3em;
         }
         a {
-          background: #592f80;
+          background: black;
           text-decoration: none;
           padding: 8px 15px;
           border-radius: 5px;
-          color: #fff;
+          color: white;
         }
       </style>
     </head>
 
     <body>
       <div class="wrapper">
-        <p>Thank you for signing up on our site. Please click on the link below to verify your account:.</p>
-        <a href="http://localhost/iteration1/verify-email.php?token=' . $token . '">Verify Email!</a>
+        <p>Thank you for Reseting your password. Please click on the link below to reset your password:.</p>
+        <a href="http://localhost/adeel/reset-password.php?Email=' . $userEmail . '&token='.$token.'">Reset Password!</a>
       </div>
     </body>
 
     </html>';
 
     // Create a message
-    $message = (new Swift_Message('Verify your email'))
+    $message = (new Swift_Message('Reset Your Password'))
         ->setFrom("terbela321@gmail.com")
         ->setTo($userEmail)
         ->setBody($body, 'text/html');

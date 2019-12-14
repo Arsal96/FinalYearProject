@@ -29,6 +29,7 @@ if (isset($_POST['signup-btn'])) {
 
     $username = $_POST['username'];
     $email = $_POST['email'];
+    $type = $_POST['usertype'];
     $token = bin2hex(random_bytes(50)); // generate unique token
     $password = password_hash($_POST['password'], PASSWORD_DEFAULT); //encrypt password
 
@@ -41,9 +42,9 @@ if (isset($_POST['signup-btn'])) {
     }
 
     if (count($errors) === 0) {
-        $query = "INSERT INTO users SET username=?, email=?, token=?, password=?";
+        $query = "INSERT INTO users SET username=?, email=?, token=?, password=?, user_type=?";
         $stmt = $conn->prepare($query);
-        $stmt->bind_param('ssss', $username, $email, $token, $password);
+        $stmt->bind_param('sssss', $username, $email, $token, $password, $type);
         $result = $stmt->execute();
 
         if ($result) {
@@ -52,12 +53,12 @@ if (isset($_POST['signup-btn'])) {
 
             // TO DO: send verification email to user
             sendVerificationEmail($email, $token);
-            $_SESSION['id'] = $user_id;
-            $_SESSION['username'] = $username;
-            $_SESSION['email'] = $email;
-            $_SESSION['verified'] = false;
-            $_SESSION['message'] = 'You are logged in!';
-            $_SESSION['type'] = 'alert-success';
+            // $_SESSION['id'] = $user_id;
+            // $_SESSION['username'] = $username;
+            // $_SESSION['email'] = $email;
+            // $_SESSION['verified'] = false;
+            // $_SESSION['message'] = 'You are logged in!';
+            // $_SESSION['type'] = 'alert-success';
             header('location: ./login.php');
         } else {
             $_SESSION['error_msg'] = "Database error: Could not register user";
@@ -89,7 +90,67 @@ if (isset($_POST['login-btn'])) {
             if (password_verify($password, $user['password'])) { 
                  // if password matches 
 
+                 
                 $stmt->close();
+
+if ($user['verified'] == 0) {
+   
+    
+    echo '<div class="text-center">
+    <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+    <h4><i class="icon fa fa-check"></i>You need to verify your email to login!</h4>
+    </div>';
+
+}
+
+
+// FORGOT USER
+if (isset($_POST['forgot-btn'])) {
+    echo'forgot';
+    if (empty($_POST['email'])) {
+        $errors['email'] = 'Email required';
+    }
+
+
+    $email = $_POST['email'];
+  
+
+    // Check if email already exists
+    $sql = "SELECT * FROM users WHERE email='$email' LIMIT 1";
+    $result = mysqli_query($conn, $sql);
+    if (mysqli_num_rows($result) > 0) {
+   
+        sendVerificationEmail($email, $token);
+        header('location: ./login.php');
+
+    }
+
+    // if (count($errors) === 0) {
+    //     $query = "INSERT INTO users SET username=?, email=?, token=?, password=?, user_type=?";
+    //     $stmt = $conn->prepare($query);
+    //     $stmt->bind_param('sssss', $username, $email, $token, $password, $type);
+    //     $result = $stmt->execute();
+
+    //     if ($result) {
+    //         $user_id = $stmt->insert_id;
+    //         $stmt->close();
+
+    //         // TO DO: send verification email to user
+    //         sendVerificationEmail($email, $token);
+           
+    //         header('location: ./login.php');
+    //     } else {
+    //         $_SESSION['error_msg'] = "Database error: Could not register user";
+    //     }
+    // }
+
+
+}
+
+
+
+else {
+  
                 echo "login verified success";
                 $_SESSION['id'] = $user['id'];
                 $_SESSION['username'] = $user['username'];
@@ -98,21 +159,23 @@ if (isset($_POST['login-btn'])) {
                 $_SESSION['message'] = 'You are logged in!';
                 $_SESSION['type'] = $user['user_type'];
 
-if ($_SESSION['type'] =='Doctor') {
-    header('location: ./admin/patients.php');
+                if ($_SESSION['type'] =='Doctor') {
+                    header('location: ./admin/mypatients.php');
 
-    exit(0);
-}
-else {
-     header('location: ./main.php');
-                echo "login success";
-                exit(0);
-    
-}
-
+                    exit(0);
+                }
+                else {
+                    header('location: ./main.php');
+                                echo "login success";
+                                exit(0);
+                    
+                }
+            }
                
             } 
-            else { // if password does not match
+
+            else
+             { // if password does not match
                 
                 $errors['login_fail'] = "Wrong username / password";
                 // header('location: ../login.php');

@@ -62,21 +62,25 @@ include('cube-box-div.php');
 
 <hr/>
 
-<div class="row" style="height:60vh">
+<div class="row">
 
     <div class="col-md-6 border-primary text-center" >
 
-    <img class="img-responsive" style="width:auto; width:auto"  src="img/img1.jpg" alt="">
+    <figure class="figure">
 
+    <img class="img-responsive figure-img img-fluid" style="width:auto; width:auto"  src="img/img1.jpg" alt="" >
+    <figcaption class="figure-caption">Source: https://en.wikipedia.org/wiki/Pneumonia</figcaption>
+</figure>
     </div>
 
 <div class="col-md-6 col-lg-6 text-center" style="padding-top:10vh">
 
 <h3 style="color:red">Pneumonia is killing us!</h3>
 <hr>
-<b > Pneumonia accounts for over 15% of all deaths of children under 5 years old internationally. In 2015, 920,000 children under the age of 5 died from the disease.
+<b class="lead"> Pneumonia accounts for over 15% of all deaths of children under 5 years old internationally. In 2015, 920,000 children under the age of 5 died from the disease.
  In the United States, pneumonia accounts for over 500,000 visits to emergency departments  and over 50,000 deaths in 2015 ,
  keeping the ailment on the list of top 10 causes of death in the country. </b>
+ <cite title="Source Title" href="https://www.who.int/news-room/fact-sheets/detail/pneumonia">World Health Organization </cite>
 
 <br><br>
  <p>*If you are interested in the basic anatomy you can see in a chest radiograph besides the lungs you can view this
@@ -86,20 +90,34 @@ include('cube-box-div.php');
 </div>
 
 </div>
-<div class="footer-small-screen">
-<?php
-echo '<br><br><br><br><br>';
-echo '<br><br><br><br><br>';
-echo '<br><br><br><br><br>';
-echo '<br><br><br><br><br>';
 
+
+<div class="container">
+
+
+<div class="row">
+
+<div class="col-md-12">
+<img src="img/doctorx-ray.jpg" alt="" class="img-responsive" style="width:auto; width:auto; min-height:100%;
+    min-width:100%;" >
+</div>
+</div>
+</div>
+
+
+<!-- <div class="footer-small-screen"> -->
+<?php
+// echo '<br><br><br><br><br>';
+// echo '<br><br><br><br><br>';
+// echo '<br><br><br><br><br>';
+// echo '<br><br><br><br><br>';
 
 ?>
-</div>
+<!-- </div> -->
 <?php
 
 
-echo '<br><br><br><br><br>';
+// echo '<br><br><br><br><br>';
 
 
 // <!-- Display messages -->
@@ -152,3 +170,4 @@ include('footer.html');
 </style>
 
 </html>
+

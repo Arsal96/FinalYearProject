@@ -1,39 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<?php include '../controllers/authController.php'; ?>
 <head>
-<meta charset="utf-8">
-<title>Pneumonia Diagnoser</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Use the power of Machine Learning to diagnose Pneumonia in children aged 1-5.">
+        <meta charset="utf-8">
+        <title>Pneumonia Diagnoser</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="Use the power of Machine Learning to diagnose Pneumonia in children aged 1-5.">
 
 
-<!--Code to prevent the browser from caching the page-->
-<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
-<meta http-equiv="Pragma" content="no-cache"/>
-<meta http-equiv="Expires" content="0"/>
+        <!--Code to prevent the browser from caching the page-->
+        <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"/>
+        <meta http-equiv="Pragma" content="no-cache"/>
+        <meta http-equiv="Expires" content="0"/>
 
 
 
 
 
-<!--CSS Stylesheets-->
-<link rel="stylesheet" href="css/w3.css">
-<link rel="stylesheet" href="css/child.css">
+        <!--CSS Stylesheets-->
+        <link rel="stylesheet" href="css/w3.css">
+        <link rel="stylesheet" href="css/child.css">
 
-<!--Link to Font Awesome icons-->
-<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.4.2/css/all.css' integrity='sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns' crossorigin='anonymous'>
+        <!--Link to Font Awesome icons-->
+        <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.4.2/css/all.css' integrity='sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns' crossorigin='anonymous'>
 
-<!--Link to fonts from google fonts-->
-<link href="https://fonts.googleapis.com/css?family=Oswald:300" rel="stylesheet">
+        <!--Link to fonts from google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Oswald:300" rel="stylesheet">
 
-<link rel="shortcut icon" type="image/png" href="robotfavicon.png">
-
+        <link rel="shortcut icon" type="image/png" href="robotfavicon.png">
 
 <?php
-// require_once('../header.php')
-
-
+// // redirect user to login page if they're not logged in
+if (!(isset($_SESSION['email']))) {
+    header('location: ../login.php');
+}
 ?>
 
 <link rel="stylesheet" href="../css/style.css">
@@ -178,7 +179,7 @@ html,body,h2,h3,h4 {font-family: Helvetica, sans-serif}
                                 <?php if(isset($_SESSION['email'])==null)
                                         {
                                             echo '<a style="
-                                            text-decoration: none;" class="nav-link" href="login.php">
+                                            text-decoration: none;" class="nav-link" href="../login.php">
                                                               <i class="fa fa-sign-in">
                               
                                                               </i>';
@@ -186,14 +187,14 @@ html,body,h2,h3,h4 {font-family: Helvetica, sans-serif}
                                         }
                                         else {
                                             echo '<a style="
-                                            text-decoration: none; color:orange;" class="nav-link" href="logout.php">
+                                            text-decoration: none; color:orange;" class="nav-link" href="../logout.php">
                                                               <i class="fa fa-sign-out">
                               
                                                               </i>';
 
                                             echo 'Logout';
                                             echo "<br>";
-                                            if(isset($_SESSION['email'])) echo $_SESSION['email'];
+                                            if(isset($_SESSION['email'])) echo $_SESSION['username'];
 
                                         }
                                         ?>
@@ -204,7 +205,7 @@ html,body,h2,h3,h4 {font-family: Helvetica, sans-serif}
                                 <?php if(isset($_SESSION['email'])==null)
                                         {
                                            echo' <a style="
-                      text-decoration: none;" class="nav-link" href="register.php">
+                                   text-decoration: none;" class="nav-link" href="../register.php">
                                         <i class="fa fa-user-plus">
                                         </i>
                                         Register

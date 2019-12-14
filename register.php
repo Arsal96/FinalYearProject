@@ -24,10 +24,15 @@ if (isset($_SESSION['email'])) {
     <link rel="stylesheet" href="css/fa-fonts.css">
 </head>
 
-
-
-
-
+<style>
+@media screen and (min-width: 750px) {
+#bars
+{
+  
+    display:none;
+}
+}
+</style>
 
 
 
@@ -43,6 +48,7 @@ if (isset($_SESSION['email'])) {
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            <i class="fa fa-bars" id="bars" aria-hidden="true"   data-toggle="collapse" data-target="#navbarSupportedContent"></i>
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul style="list-style-type: none;" style="list-style-type: none;" class="navbar-nav mr-auto">
@@ -187,8 +193,6 @@ if (isset($_SESSION['email'])) {
 
 
 
-
-
         <body class="my-login-page">
 	<section class="h-100">
 		<div class="container h-100">
@@ -229,6 +233,17 @@ if (count($errors) > 0): ?>
 									<input id="email" type="email" class="form-control" name="email" required>
 									<div class="invalid-feedback">
 										Your email is invalid
+									</div>
+								</div>
+
+                                <div class="form-group">
+									<label for="email">Your Role</label>
+                                    <select  class="form-control" id= "usertype" name="usertype">                                       
+                                        <option value="Doctor">Doctor</option>
+                                        <option value="user">User</option>
+                                        </select>					
+                                    <div class="invalid-feedback">
+										Your your is invalid
 									</div>
 								</div>
 
@@ -276,6 +291,9 @@ if (count($errors) > 0): ?>
 			</div>
 		</div>
 	</section>
+
+
+    <?php include_once('footer.html') ?>
 
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>

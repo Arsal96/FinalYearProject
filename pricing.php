@@ -198,7 +198,14 @@
         <li class='pricing-feature'>Support at PKR 800/hour</li>
         <li class='pricing-feature'>20 Predictions</li>
       </ul>
-      <button class='pricing-action'>Choose plan</button>
+      <form action="payment/checkout.php" method="post">
+
+      <input type="hidden" name="itemName" value="Standard Package- Monthly">
+      <input type="hidden" name="itemNumber" value="STD-001">
+      <input type="hidden" name="itemPrice" value="1500">
+      <button class='pricing-action' type="submit">Choose plan</button>
+
+      </form>
     </div>
     <div class='pricing-item pricing__item--featured'>
       <div class='pricing-deco'>
@@ -218,7 +225,14 @@
         <li class='pricing-feature'>Support at PKR 500/hour</li>
         <li class='pricing-feature'>50 Diagnosis</li>
       </ul>
-      <button class='pricing-action'>Choose plan</button>
+      <form action="payment/checkout.php" method="post">
+
+<input type="hidden" name="itemName" value="Professional Package - Monthly">
+<input type="hidden" name="itemNumber" value="PRO-001">
+<input type="hidden" name="itemPrice" value="3000">
+<button class='pricing-action' type="submit">Choose plan</button>
+
+</form>
     </div>
     <div class='pricing-item'>
       <div class='pricing-deco'>
@@ -238,7 +252,12 @@
         <li class='pricing-feature'>Support at PKR 500/hour</li>
         <li class='pricing-feature'>Unlimited Diagnosis</li>
       </ul>
-      <button class='pricing-action'>Choose plan</button>
+      <form action="payment/checkout.php" method="post">
+
+<input type="hidden" name="itemName" value="Professional Package - Yearly">
+<input type="hidden" name="itemNumber" value="ERP-001">
+<input type="hidden" name="itemPrice" value="10000">
+<button class='pricing-action' type="submit">Choose plan</button>
     </div>
   </div>
 </section>

@@ -64,13 +64,15 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a style="
-                        text-decoration: none;" class="nav-link" href="prediction/predict.php">
+
+                            
+                          
+                                 <a style=" text-decoration: none;" class="nav-link" href="prediction/predict.php">
                                     <i class="fa fa-plus-square">
                                         <!-- <span class="badge badge-danger">11</span> -->
                                     </i>
                                     Try Demo
-                                </a>
+                                </a> 
                             </li>
                             <li class="nav-item">
                         <a style="
@@ -231,3 +233,7 @@
 </body>
 
 </html>
+
+
+
+<!-- CUSTOM JAVASCRIPT -->

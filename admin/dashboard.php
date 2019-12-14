@@ -42,11 +42,9 @@
 <link media="all" type="text/css" rel="stylesheet" href="./assets/admin/layout/css/custom.css">
 <link media="all" type="text/css" rel="stylesheet" href="./assets/global/plugins/froiden-helper/helper.css">
 
-
-
-
-
-
+<?php
+ include '../controllers/authController.php'; 
+?>
 
 
 
@@ -99,7 +97,7 @@
                        data-close-others="true">
 
                     <span class="username username-hide-on-mobile">
-                  Admin</span>
+                  <?php  echo $_SESSION['username'] ?></span>
                         <i class="fa fa-angle-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-default">
@@ -190,13 +188,21 @@
             
 
 
-            
-            <li class="">
-                <a href="Patients.html">
+            <?php 
+
+if ((isset($_SESSION['type'])=='Doctor'))
+ {
+   echo'
+ <li class="">
+                <a href="mypatients.php">
                     <i class="fa fa-users"></i>
-                    <span class="title">Patients</span>
+                    <span class="title">My Patients</span>
                 </a>
-            </li>
+            </li>';
+
+}
+
+?>
             
 
             
@@ -262,33 +268,37 @@
 
 
     <div class="container box">
-   <h1 align="center" style="color:red">PATIENT's MANAGEMENT</h1>
+   <h1 align="center" style="color:red">My DashBoard</h1>
  
 
 <div class="row ">
 
     
-    <div class=" jumbotron col-md-4 col-lg-4" >
+    <div class="col-md-4 col-lg-4" >
+    <img src="../img/patient-card.png" alt="" class="img-responsive" width="150" height="150">
+
        <label for="">See Your Patients</label>
-       <br>
-       <br>
-       <button type="button" class="btn btn-info">Dark</button>
-
+      <br>
+       <a href="mypatients.php" class="btn txt-white blue">  <i class="icon-search icon-white"></i> Manage Patients</a>
 
     </div>
-    <div class=" jumbotron col-md-4 col-lg-4">
-    <label for="">See Your Patients</label>
+    <div class="jumbotron col-md-4 col-lg-4">
+  
+    <label for="">See Your Patients Diagnosis</label>
        <br>
        <br>
-       <button type="button" class="btn btn-danger">Dark</button>
+       <a href="#" class="btn txt-white green">  <i class="icon-search icon-white"></i>Manage Here</a>
     </div>
     <div class=" jumbotron col-md-4 col-lg-4" >
     <label for="">See Your Patients</label>
        <br>
        <br>
-       <button type="button" class="btn btn-info">Dark</button>
+       <button type="button" class="btn btn-info btn-lg">Dark</button>
     </div>
     
+
+
+
 </div>
 
 <!-- END CONTAINER -->
@@ -348,9 +358,9 @@
 <!-- END FOOTER -->
         <!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
 <!-- BEGIN CORE PLUGINS -->
-<!-- 
+<!--  
 <script src="https://hrm.froid.works/assets/global/plugins/respond.min.js"></script>
-<script src="https://hrm.froid.works/assets/global/plugins/excanvas.min.js"></script> -->
+<script src="https://hrm.froid.works/assets/global/plugins/excanvas.min.js"></script>  -->
 
 
 <!-- <script src="./assets/global/plugins/jquery.min.js"></script>
